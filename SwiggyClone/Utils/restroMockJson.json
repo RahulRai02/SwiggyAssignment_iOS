@@ -1,0 +1,94 @@
+{
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "Pizza Mania",
+      "location": "Sector 29, Gurugram",
+      "rating": 4.6,
+      "cuisine": ["Pizza", "Italian"],
+      "category": "Pizza",
+      "image": "pizzas"
+    },
+    {
+      "id": 2,
+      "name": "Burger Shack",
+      "location": "MG Road, Bengaluru",
+      "rating": 4.3,
+      "cuisine": ["Burger", "Fast Food"],
+      "category": "Burger",
+      "image": "burgers"
+    },
+    {
+      "id": 3,
+      "name": "Oriental Wok",
+      "location": "Connaught Place, New Delhi",
+      "rating": 4.5,
+      "cuisine": ["Chinese", "Asian"],
+      "category": "Chinese",
+      "image": "chinese"
+    },
+    {
+      "id": 4,
+      "name": "Biryani Bliss",
+      "location": "Sector 18, Noida",
+      "rating": 4.7,
+      "cuisine": ["Biryani", "Indian"],
+      "category": "Biryani",
+      "image": "biryani"
+    },
+    {
+      "id": 5,
+      "name": "Cake Castle",
+      "location": "Park Street, Kolkata",
+      "rating": 4.8,
+      "cuisine": ["Bakery", "Cakes"],
+      "category": "Cakes",
+      "image": "cake"
+    },
+    {
+      "id": 6,
+      "name": "Roll King",
+      "location": "Indiranagar, Bengaluru",
+      "rating": 4.4,
+      "cuisine": ["Rolls", "Street Food"],
+      "category": "Rolls",
+      "image": "Rolls"
+    },
+    {
+      "id": 7,
+      "name": "Momo Magic",
+      "location": "Rajouri Garden, New Delhi",
+      "rating": 4.2,
+      "cuisine": ["Momos", "Asian"],
+      "category": "Momos",
+      "image": "momos"
+    },
+    {
+      "id": 8,
+      "name": "Kebab Korner",
+      "location": "Bandra West, Mumbai",
+      "rating": 4.6,
+      "cuisine": ["Kebabs", "Indian"],
+      "category": "Kebabs",
+      "image": "kebab"
+    },
+    {
+      "id": 9,
+      "name": "South Spice",
+      "location": "Adyar, Chennai",
+      "rating": 4.5,
+      "cuisine": ["South Indian"],
+      "category": "South Indian",
+      "image": "southIndian"
+    },
+    {
+      "id": 10,
+      "name": "Pasta Paradise",
+      "location": "Powai, Mumbai",
+      "rating": 4.7,
+      "cuisine": ["Italian", "Pasta"],
+      "category": "Pasta",
+      "image": "pasta"
+    }
+  ]
+}

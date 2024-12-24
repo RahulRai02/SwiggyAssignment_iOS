@@ -24,6 +24,8 @@ struct HomeView: View {
     @State private var isRefreshing = false
     @State private var selectedCateogry: Category? = nil
     
+    @StateObject private var vm: HomeViewModel = HomeViewModel()
+    
     var stickyHeaderIsPinned: Bool {
         frames.first?.minY ?? 0 <= 0
     }
@@ -41,6 +43,28 @@ struct HomeView: View {
                     searchBarHeader
                         .sticky(frames)
  
+                    imageCarouselView()
+                    
+                    ScrollView(.horizontal, showsIndicators: false){
+//                        Text("Placeholder")
+                        LazyHGrid(rows: [GridItem(.flexible(), spacing: 12, alignment: nil),
+                                         GridItem(.flexible(), spacing: 12, alignment: nil)], alignment: .top ) {
+                            
+                            ForEach(vm.categories, id: \.self){ category in
+                                Text(category)
+                                    .foregroundStyle(Color.black)
+                            }
+                        
+                        }
+                                         .onAppear{
+                                                vm.fetchRestraunts()
+                                             vm.fetchCategories()
+                                         }
+                                         
+                                         .padding()
+                    }
+
+                    
                     dummyContent
                     
                     filterHeader
@@ -57,15 +81,15 @@ struct HomeView: View {
                 .onPreferenceChange(FramePreferenceKey.self, perform: {
                     frames = $0.sorted(by: { $0.minY < $1.minY })
                 })
-                .overlay(alignment: .center){
-                    let str = frames.map{
-                        "\(Int($0.minY)) - \(Int($0.height))"
-                    }.joined(separator: "\n")
-                    Text(str)
-                        .foregroundColor(.white)
-                        .background(.black)
-
-                }
+//                .overlay(alignment: .center){
+//                    let str = frames.map{
+//                        "\(Int($0.minY)) - \(Int($0.height))"
+//                    }.joined(separator: "\n")
+//                    Text(str)
+//                        .foregroundColor(.white)
+//                        .background(.black)
+//
+//                }
                 .clipped()
             }
         }
