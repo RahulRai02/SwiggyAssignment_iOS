@@ -11,12 +11,7 @@ struct SearchBarView: View {
     @Binding var searchText: String
     var body: some View {
         HStack{
-            Image(systemName: "magnifyingglass")
-                .foregroundColor(
-                    searchText.isEmpty ? Color.theme.secondaryText : Color.theme.accent
-                )
-            
-            TextField("Search by name or type", text: $searchText)
+            TextField("Search by item or dish", text: $searchText)
                 .foregroundColor(Color.theme.accent)
                 .autocorrectionDisabled(true)
                 .overlay(
@@ -34,15 +29,26 @@ struct SearchBarView: View {
                     ,alignment: .trailing
                 )
             
+            Image(systemName: "magnifyingglass")
+                .foregroundColor(
+                    searchText.isEmpty ? Color.theme.secondaryText : Color.theme.accent
+                )
+            
+            
         }
+        
         .font(.headline)
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 10)
                 .fill(Color.white)
-                .shadow(color: Color.theme.accent.opacity(0.15), radius: 10, x: 0.0, y: 0.0)
+                .strokeBorder(style: StrokeStyle(lineWidth: 0.5))
+
         )
+        .background(Color.white)
 //        .padding()
+        .safeAreaPadding(.init(top: 0, leading: 8, bottom: 20, trailing: 8))
+
     }
 }
 

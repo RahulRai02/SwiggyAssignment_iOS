@@ -10,8 +10,12 @@ import SwiftUI
 enum Category : String, CaseIterable{
 //    case all, music, podcasts, audiobooks
     case Filter, SortBy, FastDelivery, Offers, Rating, CostForTwo, More
-    
-    
+}
+
+enum TabWidget: String, CaseIterable{
+    case whatsNew = "What's New?"
+    case popular = "Popular"
+    case gourmetDelights = "Gourmet Delights"
 }
 
 struct HomeView: View {
@@ -32,29 +36,14 @@ struct HomeView: View {
             
             VStack{
                 ScrollView{
-                    HStack{
-                        VStack(alignment:.leading){
-                            HStack{
-                                Image(systemName: "house")
-                                    .foregroundColor(Color.theme.orange)
-                                Text("Home")
-                                    .font(.headline)
-                                Image(systemName: "chevron.down")
-                            }
-                            Text("134 Sector 28, Gurugram")
-                        }
-                        .padding()
-                        Spacer()
-                        Image(systemName: "person.circle")
-                            .padding()
-                            .font(.system(size: 32))
-                    }
-                    SearchBarView(searchText: $searchText)
+                    
+                    navigationHeader
+                    searchBarHeader
                         .sticky(frames)
-                        .safeAreaPadding(.init( top: 0, leading: 8, bottom: 0, trailing: 8))
+ 
                     dummyContent
                     
-                    header
+                    filterHeader
                         .sticky(frames)
 
                     dummyContent
@@ -90,7 +79,7 @@ struct HomeView: View {
         isRefreshing = false
     }
     
-    private var header: some View {
+    private var filterHeader: some View {
         HStack(spacing:0){
             ScrollView(.horizontal) {
                 HStack(spacing: 8){
@@ -190,3 +179,44 @@ extension View {
     HomeView()
 //        .ignoresSafeArea(/*@START_MENU_TOKEN@*/.keyboard/*@END_MENU_TOKEN@*/, edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
 }
+
+
+extension HomeView {
+    private var navigationHeader: some View {
+        HStack{
+            VStack(alignment:.leading){
+                HStack{
+                    Image(systemName: "house.fill")
+                        .foregroundColor(Color.theme.orange)
+                    Text("Home")
+                        .font(.headline)
+                        .foregroundStyle(Color.theme.accent)
+                    Image(systemName: "chevron.down")
+                        .foregroundStyle(Color.theme.accent)
+                }
+                Text("134 Sector 28, Gurugram")
+                    .foregroundStyle(Color.theme.accent)
+            }
+            .padding()
+            Spacer()
+            NavigationLink {
+                AccountScreen()
+            } label: {
+                Image(systemName: "person.circle")
+                    .padding()
+                    .font(.system(size: 32))
+                    .foregroundStyle(Color.theme.accent)
+                
+            }
+        }
+//        .background(Color.red)
+    }
+    private var searchBarHeader: some View {
+        SearchBarView(searchText: $searchText)
+            
+//            .safeAreaPadding(.init( top: 0, leading: 8, bottom: 4, trailing: 8))
+    }
+    
+}
+
+

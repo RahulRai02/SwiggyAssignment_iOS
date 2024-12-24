@@ -16,6 +16,7 @@
 		B725301F2D1AE64900B80F54 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725301E2D1AE64900B80F54 /* SearchBarView.swift */; };
 		B72530212D1B0AAC00B80F54 /* TabWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72530202D1B0AAC00B80F54 /* TabWidgetView.swift */; };
 		B72530232D1B0D6500B80F54 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72530222D1B0D6400B80F54 /* CategoryCell.swift */; };
+		B72530252D1B1F1900B80F54 /* AccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72530242D1B1F1900B80F54 /* AccountScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		B725301E2D1AE64900B80F54 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		B72530202D1B0AAC00B80F54 /* TabWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabWidgetView.swift; sourceTree = "<group>"; };
 		B72530222D1B0D6400B80F54 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		B72530242D1B1F1900B80F54 /* AccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				B725301C2D1ABF3700B80F54 /* HomeView.swift */,
+				B72530242D1B1F1900B80F54 /* AccountScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				B72530212D1B0AAC00B80F54 /* TabWidgetView.swift in Sources */,
 				B725301F2D1AE64900B80F54 /* SearchBarView.swift in Sources */,
 				B72530062D1AB8EF00B80F54 /* ContentView.swift in Sources */,
+				B72530252D1B1F1900B80F54 /* AccountScreen.swift in Sources */,
 				B72530232D1B0D6500B80F54 /* CategoryCell.swift in Sources */,
 				B725301D2D1ABF3700B80F54 /* HomeView.swift in Sources */,
 				B72530042D1AB8EF00B80F54 /* SwiggyCloneApp.swift in Sources */,
