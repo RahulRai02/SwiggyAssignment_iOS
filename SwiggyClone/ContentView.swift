@@ -9,13 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack{
+            Color.theme.background
+                .ignoresSafeArea()
+            VStack(spacing: 40){
+                Text("Accent Color")
+                    .foregroundColor(Color.theme.accent)
+                
+                Text("Orange Color")
+                    .foregroundColor(Color.theme.orange)                
+            }
+            .font(.headline)
         }
-        .padding()
     }
 }
 
