@@ -44,24 +44,47 @@ struct HomeView: View {
                         .sticky(frames)
  
                     imageCarouselView()
-                    
+      
+
+                    Text("WHAT'S ON YOUR MIND?")
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(Color.theme.accent)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 16)
+                        .padding(.top, 8)
+
                     ScrollView(.horizontal, showsIndicators: false){
 //                        Text("Placeholder")
-                        LazyHGrid(rows: [GridItem(.flexible(), spacing: 12, alignment: nil),
-                                         GridItem(.flexible(), spacing: 12, alignment: nil)], alignment: .top ) {
+                        LazyHGrid(rows: [GridItem(.flexible(), spacing: 10, alignment: nil),
+                                         GridItem(.flexible(), spacing: 10, alignment: nil)], alignment: .top ) {
                             
                             ForEach(vm.categories, id: \.self){ category in
-                                Text(category)
-                                    .foregroundStyle(Color.black)
+                                VStack(alignment: .center) {
+                                    Image(category.image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 75, height: 75)
+                                        .clipShape(Circle())
+                                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                                        .shadow(radius: 5)
+
+                                    Text(category.name)
+                                        .font(.caption)
+                                        .lineLimit(1)
+                                }
+//                                .padding()
+//                                .background(Color.red)
+                                    
                             }
                         
                         }
-                                         .onAppear{
-                                                vm.fetchRestraunts()
-                                             vm.fetchCategories()
-                                         }
-                                         
-                                         .padding()
+                         .onAppear{
+                                vm.fetchRestraunts()
+                             vm.fetchCategories()
+                         }
+                         
+                         .padding()
                     }
 
                     

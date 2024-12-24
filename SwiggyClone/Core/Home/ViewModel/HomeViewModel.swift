@@ -14,7 +14,7 @@ class HomeViewModel: ObservableObject {
     @Published var selectedRestaurant: Restaurant? = nil
     
     @Published var menus: [WelcomeMenu] = []
-    @Published var categories: [String] = []
+    @Published var categories: [categoryItem] = []
    
     
     func fetchRestraunts(){
@@ -38,7 +38,7 @@ class HomeViewModel: ObservableObject {
     
     func fetchCategories(){
         // If network logic comes, we can add here
-        guard let url = Bundle.main.url(forResource: "menuJson", withExtension: "json")
+        guard let url = Bundle.main.url(forResource: "restroMockJson", withExtension: "json")
             else{
                 print("menujson file not found")
                 return
@@ -46,22 +46,18 @@ class HomeViewModel: ObservableObject {
             
         do {
             let data = try Data(contentsOf: url)
-            let menuResponse = try JSONDecoder().decode(MenuResponseByRestroId.self, from: data)
+            let restroResponse = try JSONDecoder().decode(RestaurantResponse.self, from: data)
 
-            
-            var categorySet: Set<String> = []
                     
-            // Extract categories from each menu item
-            for menu in menuResponse.menus {
-                for item in menu.menu {
-//                    print(item.category)
-                    categorySet.insert(item.category)
-                }
+            var categoryList: [categoryItem] = []
+         
+            for item in restroResponse.restaurants {
+                let categoryItem = categoryItem(name: item.category, image: item.image)
+                categoryList.append(categoryItem)
+                 print(categoryItem)
             }
-//            print(categorySet)
-            
-            // Convert the Set to an array and assign it to categories
-            self.categories = Array(categorySet).sorted()
+
+            self.categories = categoryList
             
         } catch {
             print("Failed to decode JSON: \(error.localizedDescription)")

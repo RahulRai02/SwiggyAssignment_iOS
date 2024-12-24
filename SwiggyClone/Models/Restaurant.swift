@@ -20,3 +20,9 @@ struct Restaurant: Codable {
     var cuisine: [String]
     var category, image: String
 }
+
+struct categoryItem: Identifiable, Hashable{
+    var id = UUID()
+    var name: String
+    var image: String
+}
