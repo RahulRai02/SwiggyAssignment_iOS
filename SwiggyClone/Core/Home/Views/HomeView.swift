@@ -7,15 +7,22 @@
 
 import SwiftUI
 
-enum Category : String, CaseIterable{
-    case Filter, SortBy, FastDelivery, Offers, Rating, CostForTwo, More
-}
 
 enum TabWidget: String, CaseIterable{
     case whatsNew = "What's New?"
     case popular = "Popular"
     case gourmetDelights = "Gourmet Delights"
 }
+
+enum Category: String, CaseIterable {
+    
+    case all = "All"
+    case rating = "Rating 4.5+"
+    case veg = "Veg Only"
+    case bestSeller = "Best Seller"
+    
+}
+
 
 struct HomeView: View {
 
@@ -28,7 +35,7 @@ struct HomeView: View {
         
         ZStack{
             if isShowingDetailView {
-                RestaurantDetailView(restaurant: vm.selectedRestaurant!, vm: vm, animation: animation, isShowingDetailView: $isShowingDetailView)
+                RestaurantDetailView(restaurant: vm.selectedRestaurant!, animation: animation, vm: vm, isShowingDetailView: $isShowingDetailView)
             }else{
                 Color.theme.background
                     .ignoresSafeArea()
@@ -243,9 +250,13 @@ extension HomeView {
                     ForEach(Category.allCases, id: \.self){category in
                         
                         CategoryCell(title: category.rawValue.capitalized,
-                                     isSelected: category == vm.selectedCateogry)
+                                     isSelected: category == vm.selectedFilter)
                         .onTapGesture {
-                            vm.selectedCateogry = category
+                            withAnimation(.easeInOut){
+                                vm.selectedFilter = category
+                                vm.updateRestaurantListBasedOnFilter(selectedFilter: category)
+                            }
+                            
                         }
                     }
                 }

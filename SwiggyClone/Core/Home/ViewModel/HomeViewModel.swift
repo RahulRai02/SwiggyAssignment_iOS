@@ -21,7 +21,7 @@ class HomeViewModel: ObservableObject {
     @Published var frames : [CGRect] = []
     @Published var searchText = ""
     @Published var isRefreshing = false
-    @Published var selectedCateogry: Category? = nil
+    @Published var selectedFilter: Category? = Category.all
     @Published var isLoadingRestroMenu = false
     
     
@@ -63,7 +63,7 @@ class HomeViewModel: ObservableObject {
             for item in restroResponse.restaurants {
                 let categoryItem = categoryItem(name: item.category, image: item.image ?? "placeholder")
                 categoryList.append(categoryItem)
-                 print(categoryItem)
+//                 print(categoryItem)
             }
 
             self.categories = categoryList
@@ -99,6 +99,27 @@ class HomeViewModel: ObservableObject {
         
     }
         
+    func updateRestaurantListBasedOnFilter(selectedFilter: Category){
+        // Case statements
+        switch selectedFilter {
+        case .all:
+            fetchRestraunts()
+        case .veg:
+            // TODO: Filter based on veg
+            fetchRestraunts()
+        case .rating:
+            // Rating greater then 4.5+
+//            self.restraunts = []
+            print(restraunts.filter { $0.rating > 4.5 })
+            self.restraunts = restraunts.filter { $0.rating > 4.5 }
+            
+        case .bestSeller:
+            // TODO: Filter based tag best seller
+            fetchRestraunts()
+            
+        }
+    }
+    
     
     func resetLists(){
         restraunts = []

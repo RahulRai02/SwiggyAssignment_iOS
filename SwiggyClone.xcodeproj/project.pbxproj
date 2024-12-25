@@ -30,6 +30,7 @@
 		B73BAB332D1C424B00BEF879 /* SkeletonCategoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BAB322D1C424B00BEF879 /* SkeletonCategoryCellView.swift */; };
 		B73BAB352D1C42E600BEF879 /* FoodCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BAB342D1C42E600BEF879 /* FoodCategoryCell.swift */; };
 		B73BAB372D1C44A100BEF879 /* StickyModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BAB362D1C44A100BEF879 /* StickyModifier.swift */; };
+		B73BAB3D2D1C516F00BEF879 /* backButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BAB3C2D1C516F00BEF879 /* backButtonLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		B73BAB322D1C424B00BEF879 /* SkeletonCategoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCategoryCellView.swift; sourceTree = "<group>"; };
 		B73BAB342D1C42E600BEF879 /* FoodCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryCell.swift; sourceTree = "<group>"; };
 		B73BAB362D1C44A100BEF879 /* StickyModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyModifier.swift; sourceTree = "<group>"; };
+		B73BAB3C2D1C516F00BEF879 /* backButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backButtonLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				B73BAB362D1C44A100BEF879 /* StickyModifier.swift */,
 				B72530282D1B3D2100B80F54 /* restroMockJson.json */,
 				B72530332D1B666300B80F54 /* menuJson.json */,
+				B73BAB3C2D1C516F00BEF879 /* backButtonLabel.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				B725301D2D1ABF3700B80F54 /* HomeView.swift in Sources */,
 				B73BAB2F2D1BF09D00BEF879 /* RestaurantDetailView.swift in Sources */,
 				B72530042D1AB8EF00B80F54 /* SwiggyCloneApp.swift in Sources */,
+				B73BAB3D2D1C516F00BEF879 /* backButtonLabel.swift in Sources */,
 				B72530382D1BE1B400B80F54 /* SkeletonRestaurantCellView.swift in Sources */,
 				B725301B2D1ABDF600B80F54 /* Color.swift in Sources */,
 			);
