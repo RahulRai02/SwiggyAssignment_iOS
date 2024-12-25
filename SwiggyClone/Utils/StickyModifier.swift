@@ -39,9 +39,10 @@ struct Sticky: ViewModifier{
                         .onAppear{
                             frame = f
                         }
-                        .onChange(of: f) {
-                            frame = $0
-                        }
+                        .onChange(of: f, { oldValue, newValue in
+                            frame = newValue
+                        })
+
                         .preference(key: FramePreferenceKey.self, value: [frame])
                     
                 }

@@ -20,7 +20,7 @@ struct CategoryCell: View {
             .padding(.vertical, 8)
             .padding(.horizontal, 10)
 
-            .background(isSelected ? Color.theme.orange : Color.white)
+            .background(isSelected ? Color.theme.orangeCol : Color.white)
             .foregroundStyle(isSelected ? Color.white : Color.black.opacity(0.7))
 //            .fontweight(.semibold)
             .cornerRadius(16)

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+// NOT THE ENTRY POINT OF THE APP
 struct ContentView: View {
     var body: some View {
         ZStack{
@@ -17,7 +17,7 @@ struct ContentView: View {
                     .foregroundColor(Color.theme.accent)
                 
                 Text("Orange Color")
-                    .foregroundColor(Color.theme.orange)                
+                    .foregroundColor(Color.theme.orangeCol)                
             }
             .font(.headline)
         }

@@ -11,7 +11,7 @@ struct SearchBarView: View {
     @Binding var searchText: String
     var body: some View {
         HStack{
-            TextField("Search by item or dish", text: $searchText)
+            TextField("Search by restaurant or dish", text: $searchText)
                 .foregroundColor(Color.theme.accent)
                 .autocorrectionDisabled(true)
                 .overlay(

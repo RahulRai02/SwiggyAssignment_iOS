@@ -5,24 +5,9 @@
 //  Created by Rahul Rai on 24/12/24.
 //
 
+
 import SwiftUI
-
-
-enum TabWidget: String, CaseIterable{
-    case whatsNew = "What's New?"
-    case popular = "Popular"
-    case gourmetDelights = "Gourmet Delights"
-}
-
-enum Category: String, CaseIterable {
-    
-    case all = "All"
-    case rating = "Rating 4.5+"
-    case veg = "Veg Only"
-    case bestSeller = "Best Seller"
-    
-}
-
+import Foundation
 
 struct HomeView: View {
 
@@ -43,6 +28,7 @@ struct HomeView: View {
                 VStack{
                     ScrollView{
                         navigationHeader
+                            
                         searchBarHeader
                             .sticky(vm.frames)
                         
@@ -71,7 +57,6 @@ struct HomeView: View {
                                 "WowMomos"
                             ].reversed()
                         )
-                        
                         
                         filterHeader
                             .sticky(vm.frames)
@@ -130,7 +115,7 @@ extension HomeView {
             VStack(alignment:.leading){
                 HStack{
                     Image(systemName: "house.fill")
-                        .foregroundColor(Color.theme.orange)
+                        .foregroundColor(Color.theme.orangeCol)
                     Text("Home")
                         .font(.headline)
                         .foregroundStyle(Color.theme.accent)
@@ -158,6 +143,14 @@ extension HomeView {
     // MARK: - Search Bar
     private var searchBarHeader: some View {
         SearchBarView(searchText: $vm.searchText)
+            .onChange(of: vm.searchText) { oldValue, newValue in
+                withAnimation(.easeInOut){
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        vm.updateRestroBySearchText(searchText: newValue)
+                    }
+                }
+            }
+            
     }
     
     // MARK: - Food Category Heading
@@ -183,6 +176,7 @@ extension HomeView {
                     ForEach(vm.categories, id: \.self) { category in
                         NavigationLink {
                             //Todo: Navigate to category based restraurants
+                            
                         } label: {
                             FoodCategoryCell(image: category.image, name: category.name)
                         }
@@ -200,6 +194,7 @@ extension HomeView {
              .padding()
         }
     }
+
     
     // MARK: - Vertical Restraunt Content Heading
     private var verticalRestrauntContentHeading: some View {

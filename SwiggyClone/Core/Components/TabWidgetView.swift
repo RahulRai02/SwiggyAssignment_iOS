@@ -7,9 +7,10 @@
 
 import SwiftUI
 
+// Name of file should be based on displayting restros based on food cartegory, should open a seperate view...
 struct TabWidgetView: View {
     var body: some View {
-        Text("Hello, World!")
+        Text("Hello, I will list all restros based on the selected food Category! Coming soon...")
     }
 }
 

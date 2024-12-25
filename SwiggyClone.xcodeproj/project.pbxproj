@@ -91,15 +91,15 @@
 		B72530022D1AB8EF00B80F54 /* SwiggyClone */ = {
 			isa = PBXGroup;
 			children = (
+				B72530032D1AB8EF00B80F54 /* SwiggyCloneApp.swift */,
 				B72530072D1AB8F200B80F54 /* Assets.xcassets */,
-				B72530052D1AB8EF00B80F54 /* ContentView.swift */,
 				B72530122D1ABD8000B80F54 /* Core */,
 				B72530172D1ABDA800B80F54 /* Extensions */,
 				B72530182D1ABDB400B80F54 /* Models */,
 				B72530092D1AB8F200B80F54 /* Preview Content */,
 				B72530192D1ABDBB00B80F54 /* Services */,
-				B72530032D1AB8EF00B80F54 /* SwiggyCloneApp.swift */,
 				B72530112D1ABD5800B80F54 /* Utils */,
+				B72530052D1AB8EF00B80F54 /* ContentView.swift */,
 			);
 			path = SwiggyClone;
 			sourceTree = "<group>";

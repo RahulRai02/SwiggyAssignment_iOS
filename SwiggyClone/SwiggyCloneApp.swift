@@ -14,6 +14,7 @@ struct SwiggyCloneApp: App {
             NavigationView{
                 HomeView()
 //                    .navigationBarBackButtonHidden(true)
+//                    .ignoresSafeArea(edges:.bottom)
             }
         }
     }

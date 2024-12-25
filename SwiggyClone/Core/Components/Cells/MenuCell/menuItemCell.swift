@@ -31,7 +31,7 @@ struct menuItemCell: View {
             Spacer()
             RoundedRectangle(cornerRadius: 10)
                 .overlay(
-                    Image(menu.image ?? "placeholder")
+                    Image(menu.image)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 100, height: 100)

@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 
 class HomeViewModel: ObservableObject {
@@ -14,8 +15,7 @@ class HomeViewModel: ObservableObject {
     @Published var selectedRestaurant: Restaurant? = nil
     
     @Published var menus: [MenuMenu] = []
-    @Published var categories: [categoryItem] = []
-    @Published var isLoadingMenus = false
+    @Published var categories: [categoryItem] = []  // This is the filter category, dont confuse with food category
    
     
     @Published var frames : [CGRect] = []
@@ -23,7 +23,6 @@ class HomeViewModel: ObservableObject {
     @Published var isRefreshing = false
     @Published var selectedFilter: Category? = Category.all
     @Published var isLoadingRestroMenu = false
-    
     
     
     func fetchRestraunts(){
@@ -109,9 +108,12 @@ class HomeViewModel: ObservableObject {
             fetchRestraunts()
         case .rating:
             // Rating greater then 4.5+
-//            self.restraunts = []
-            print(restraunts.filter { $0.rating > 4.5 })
+//            print(restraunts.filter { $0.rating > 4.5 })
             self.restraunts = restraunts.filter { $0.rating > 4.5 }
+            
+        case .sortByRating:
+            // Sort in accending order
+            self.restraunts = restraunts.sorted { $0.rating > $1.rating }
             
         case .bestSeller:
             // TODO: Filter based tag best seller
@@ -127,6 +129,14 @@ class HomeViewModel: ObservableObject {
         menus = []
         categories = []
     
+    }
+    
+    func updateRestroBySearchText(searchText: String){
+        if searchText.isEmpty {
+            fetchRestraunts()
+        }else{
+            restraunts = restraunts.filter { $0.name.lowercased().contains(searchText.lowercased()) || $0.category.lowercased().contains(searchText.lowercased()) }
+        }
     }
     
 

@@ -11,12 +11,9 @@ struct RestaurantCellView: View {
     let restaurant: Restaurant
     var animation: Namespace.ID
     var body: some View {
-//        NavigationLink {
-////            RestaurantDetailView(restaurant: restaurant)
-//            AccountScreen()
-//        } label: {
+
             HStack{
-    //            ZStack{
+
                 RoundedRectangle(cornerRadius: 10)
                     .overlay(
                         
@@ -69,29 +66,5 @@ struct RestaurantCellView: View {
 //            .background(Color.red)
         }
 
-        
-
-//        .padding(.vertical, 8)
-//    }
 }
 
-//#Preview {
-//    
-//    RestaurantCellView(
-//        restaurant: Restaurant(
-//            id: 1,
-//            name: "McDonald's",
-//            location: "Gurgaon",
-//            rating: 4.3,
-//            cuisine: [
-//                "American",
-//                "Fastfood",
-//                "Pasta",
-//                "Italien"
-//            ],
-//            category: "Burgers",
-//            image: "burgers"
-//        )
-//    )
-//
-//}

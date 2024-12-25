@@ -103,28 +103,6 @@ extension RestaurantDetailView {
         }
     }
     
-//    private var menuFilterHeader: some View {
-//        HStack(spacing:0){
-//            ScrollView(.horizontal) {
-//                HStack(spacing: 8){
-//                    ForEach(FiltersType.allCases, id: \.self){category in
-//                        
-//                        CategoryCell(title: category.rawValue.capitalized,
-//                                     isSelected: true)
-//                    }
-//                }
-//                .padding(.horizontal, 16)
-//            }
-//            .scrollIndicators(.hidden)
-//            
-//        }
-//        .padding(.vertical, 24)
-//        .padding(.leading, 8)
-//        .background(Color.theme.background)
-//        
-//        
-//    }
-    
 }
 
 

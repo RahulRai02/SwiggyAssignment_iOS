@@ -27,3 +27,15 @@ struct categoryItem: Identifiable, Hashable{
     var name: String
     var image: String
 }
+
+
+// MARK: - Category Enum Filters
+enum Category: String, CaseIterable {
+    
+    case all = "All"
+    case rating = "Rating 4.5+"
+    case sortByRating = "Sort By Rating 📈"
+    case veg = "Veg Only"
+    case bestSeller = "Best Seller"
+    
+}

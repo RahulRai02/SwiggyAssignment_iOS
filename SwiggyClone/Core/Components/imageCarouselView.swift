@@ -11,8 +11,7 @@ struct imageCarouselView: View {
     @State private var currentPage = 0
     
     var images: [String]
-    
-//    let images = ["Barista", "BurgerKing", "Chaayos", "greenCravings", "Keventers", "WowMomos"]
+
     var body: some View {
         VStack {
             TabView(selection: $currentPage) {
@@ -27,7 +26,6 @@ struct imageCarouselView: View {
             .frame(height: 200)
             .cornerRadius(10)
             .padding([.leading, .trailing], 10)
-//            Spacer()
             .onReceive(timer) { _ in
                 withAnimation {
                     currentPage = (currentPage + 1) % images.count
