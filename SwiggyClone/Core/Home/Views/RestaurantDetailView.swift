@@ -83,7 +83,7 @@ struct RestaurantDetailView: View {
         
             ScrollView{
                 ForEach(vm.menus, id: \.self){ menu in
-                    Text(menu.description)
+                    menuItemCell(menu: menu)
                 }
             }
             .onAppear{

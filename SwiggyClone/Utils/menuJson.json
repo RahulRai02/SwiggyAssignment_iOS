@@ -3,101 +3,101 @@
     {
       "restaurant_id": 1,
       "menu": [
-        { "id": 101, "name": "Margherita Pizza", "description": "Classic margherita with fresh basil and mozzarella.", "price": 299, "category": "Pizza", "image": "https://example.com/images/margherita.jpg" },
-        { "id": 102, "name": "Pepperoni Pizza", "description": "Loaded with pepperoni and extra cheese.", "price": 349, "category": "Pizza", "image": "https://example.com/images/pepperoni.jpg" },
-        { "id": 103, "name": "Veggie Supreme", "description": "Topped with bell peppers, olives, and onions.", "price": 329, "category": "Pizza", "image": "https://example.com/images/veggie_supreme.jpg" },
-        { "id": 104, "name": "BBQ Chicken Pizza", "description": "Smoked chicken with BBQ sauce.", "price": 399, "category": "Pizza", "image": "https://example.com/images/bbq_chicken.jpg" },
-        { "id": 105, "name": "Cheese Burst Pizza", "description": "Extra cheesy goodness in every bite.", "price": 359, "category": "Pizza", "image": "https://example.com/images/cheese_burst.jpg" }
+        { "id": 101, "name": "Margherita Pizza", "description": "Classic margherita with fresh basil and mozzarella.", "price": 299, "category": "Pizza", "image": "pizzas" },
+        { "id": 102, "name": "Pepperoni Pizza", "description": "Loaded with pepperoni and extra cheese.", "price": 349, "category": "Pizza", "image": "pizzas" },
+        { "id": 103, "name": "Veggie Supreme", "description": "Topped with bell peppers, olives, and onions.", "price": 329, "category": "Pizza", "image": "pizzas" },
+        { "id": 104, "name": "BBQ Chicken Pizza", "description": "Smoked chicken with BBQ sauce.", "price": 399, "category": "Pizza", "image": "pizzas" },
+        { "id": 105, "name": "Cheese Burst Pizza", "description": "Extra cheesy goodness in every bite.", "price": 359, "category": "Pizza", "image": "pizzas" }
       ]
     },
     {
       "restaurant_id": 2,
       "menu": [
-        { "id": 201, "name": "Classic Cheese Burger", "description": "Beef patty with cheddar cheese.", "price": 199, "category": "Burger", "image": "https://example.com/images/classic_burger.jpg" },
-        { "id": 202, "name": "Veggie Burger", "description": "Patty made with fresh vegetables.", "price": 179, "category": "Burger", "image": "https://example.com/images/veggie_burger.jpg" },
-        { "id": 203, "name": "Crispy Chicken Burger", "description": "Fried chicken with mayo and lettuce.", "price": 249, "category": "Burger", "image": "https://example.com/images/crispy_chicken.jpg" },
-        { "id": 204, "name": "Double Trouble Burger", "description": "Double patty with double cheese.", "price": 299, "category": "Burger", "image": "https://example.com/images/double_trouble.jpg" },
-        { "id": 205, "name": "Bacon Deluxe Burger", "description": "Topped with crispy bacon.", "price": 279, "category": "Burger", "image": "https://example.com/images/bacon_burger.jpg" }
+        { "id": 201, "name": "Classic Cheese Burger", "description": "Beef patty with cheddar cheese.", "price": 199, "category": "Burger", "image": "burgers" },
+        { "id": 202, "name": "Veggie Burger", "description": "Patty made with fresh vegetables.", "price": 179, "category": "Burger", "image": "burgers" },
+        { "id": 203, "name": "Crispy Chicken Burger", "description": "Fried chicken with mayo and lettuce.", "price": 249, "category": "Burger", "image": "burgers" },
+        { "id": 204, "name": "Double Trouble Burger", "description": "Double patty with double cheese.", "price": 299, "category": "Burger", "image": "burgers" },
+        { "id": 205, "name": "Bacon Deluxe Burger", "description": "Topped with crispy bacon.", "price": 279, "category": "Burger", "image": "burgers"}
       ]
     },
     {
       "restaurant_id": 3,
       "menu": [
-        { "id": 301, "name": "Chicken Manchurian", "description": "Spicy chicken with Manchurian sauce.", "price": 249, "category": "Chinese", "image": "https://example.com/images/manchurian.jpg" },
-        { "id": 302, "name": "Veg Hakka Noodles", "description": "Stir-fried noodles with vegetables.", "price": 199, "category": "Noodles", "image": "https://example.com/images/hakka_noodles.jpg" },
-        { "id": 303, "name": "Spring Rolls", "description": "Crispy rolls stuffed with veggies.", "price": 149, "category": "Rolls", "image": "https://example.com/images/spring_rolls.jpg" },
-        { "id": 304, "name": "Chilli Chicken", "description": "Boneless chicken tossed in spicy sauce.", "price": 279, "category": "Chinese", "image": "https://example.com/images/chilli_chicken.jpg" },
-        { "id": 305, "name": "Chicken Fried Rice", "description": "Classic fried rice with chicken.", "price": 219, "category": "Chinese", "image": "https://example.com/images/fried_rice.jpg" }
+        { "id": 301, "name": "Chicken Manchurian", "description": "Spicy chicken with Manchurian sauce.", "price": 249, "category": "Chinese", "image": "chinese" },
+        { "id": 302, "name": "Veg Hakka Noodles", "description": "Stir-fried noodles with vegetables.", "price": 199, "category": "Noodles", "image": "chinese" },
+        { "id": 303, "name": "Spring Rolls", "description": "Crispy rolls stuffed with veggies.", "price": 149, "category": "Rolls", "image": "Rolls" },
+        { "id": 304, "name": "Chilli Chicken", "description": "Boneless chicken tossed in spicy sauce.", "price": 279, "category": "Chinese", "image": "chinese" },
+        { "id": 305, "name": "Chicken Fried Rice", "description": "Classic fried rice with chicken.", "price": 219, "category": "Chinese", "image": "Rolls" }
       ]
     },
     {
       "restaurant_id": 4,
       "menu": [
-        { "id": 401, "name": "Hyderabadi Biryani", "description": "Flavorful biryani with aromatic spices.", "price": 349, "category": "Biryani", "image": "https://example.com/images/hyderabadi_biryani.jpg" },
-        { "id": 402, "name": "Chicken Biryani", "description": "Classic chicken biryani.", "price": 319, "category": "Biryani", "image": "https://example.com/images/chicken_biryani.jpg" },
-        { "id": 403, "name": "Veg Biryani", "description": "Aromatic rice cooked with vegetables.", "price": 279, "category": "Biryani", "image": "https://example.com/images/veg_biryani.jpg" },
-        { "id": 404, "name": "Egg Biryani", "description": "Eggs served over spiced basmati rice.", "price": 299, "category": "Biryani", "image": "https://example.com/images/egg_biryani.jpg" },
-        { "id": 405, "name": "Mutton Biryani", "description": "Tender mutton pieces with basmati rice.", "price": 399, "category": "Biryani", "image": "https://example.com/images/mutton_biryani.jpg" }
+        { "id": 401, "name": "Hyderabadi Biryani", "description": "Flavorful biryani with aromatic spices.", "price": 349, "category": "Biryani", "image": "biryani" },
+        { "id": 402, "name": "Chicken Biryani", "description": "Classic chicken biryani.", "price": 319, "category": "Biryani", "image": "biryani" },
+        { "id": 403, "name": "Veg Biryani", "description": "Aromatic rice cooked with vegetables.", "price": 279, "category": "Biryani", "image": "biryani" },
+        { "id": 404, "name": "Egg Biryani", "description": "Eggs served over spiced basmati rice.", "price": 299, "category": "Biryani", "image": "biryani" },
+        { "id": 405, "name": "Mutton Biryani", "description": "Tender mutton pieces with basmati rice.", "price": 399, "category": "Biryani", "image": "biryani" }
       ]
     },
     {
       "restaurant_id": 5,
       "menu": [
-        { "id": 501, "name": "Chocolate Truffle Cake", "description": "Rich and moist chocolate cake.", "price": 499, "category": "Cakes", "image": "https://example.com/images/truffle.jpg" },
-        { "id": 502, "name": "Black Forest Cake", "description": "Layered chocolate sponge with cherries.", "price": 449, "category": "Cakes", "image": "https://example.com/images/black_forest.jpg" },
-        { "id": 503, "name": "Red Velvet Cake", "description": "Delicate red velvet sponge with cream cheese frosting.", "price": 549, "category": "Cakes", "image": "https://example.com/images/red_velvet.jpg" },
-        { "id": 504, "name": "Pineapple Cake", "description": "Classic pineapple-flavored cake.", "price": 399, "category": "Cakes", "image": "https://example.com/images/pineapple_cake.jpg" },
-        { "id": 505, "name": "Vanilla Cupcakes", "description": "Soft and fluffy vanilla cupcakes.", "price": 199, "category": "Cakes", "image": "https://example.com/images/vanilla_cupcakes.jpg" }
+        { "id": 501, "name": "Chocolate Truffle Cake", "description": "Rich and moist chocolate cake.", "price": 499, "category": "Cakes", "image": "cake" },
+        { "id": 502, "name": "Black Forest Cake", "description": "Layered chocolate sponge with cherries.", "price": 449, "category": "Cakes", "image": "cake" },
+        { "id": 503, "name": "Red Velvet Cake", "description": "Delicate red velvet sponge with cream cheese frosting.", "price": 549, "category": "Cakes", "image": "cake" },
+        { "id": 504, "name": "Pineapple Cake", "description": "Classic pineapple-flavored cake.", "price": 399, "category": "Cakes", "image": "cake" },
+        { "id": 505, "name": "Vanilla Cupcakes", "description": "Soft and fluffy vanilla cupcakes.", "price": 199, "category": "Cakes", "image": "cake" }
       ]
     },
     {
       "restaurant_id": 6,
       "menu": [
-        { "id": 601, "name": "Classic Chicken Roll", "description": "Marinated chicken wrapped in a soft paratha.", "price": 159, "category": "Roll", "image": "https://example.com/images/chicken_roll.jpg" },
-        { "id": 602, "name": "Veg Roll", "description": "Fresh veggies wrapped in a soft paratha.", "price": 139, "category": "Roll", "image": "https://example.com/images/veg_roll.jpg" },
-        { "id": 603, "name": "Paneer Tikka Roll", "description": "Grilled paneer with spiced tikka masala.", "price": 169, "category": "Roll", "image": "https://example.com/images/paneer_tikka_roll.jpg" },
-        { "id": 604, "name": "Double Chicken Roll", "description": "Double servings of grilled chicken.", "price": 199, "category": "Roll", "image": "https://example.com/images/double_chicken_roll.jpg" },
-        { "id": 605, "name": "Cheese Roll", "description": "Melted cheese with grilled veggies.", "price": 179, "category": "Roll", "image": "https://example.com/images/cheese_roll.jpg" }
+        { "id": 601, "name": "Classic Chicken Roll", "description": "Marinated chicken wrapped in a soft paratha.", "price": 159, "category": "Roll", "image": "Rolls" },
+        { "id": 602, "name": "Veg Roll", "description": "Fresh veggies wrapped in a soft paratha.", "price": 139, "category": "Roll", "image": "Rolls" },
+        { "id": 603, "name": "Paneer Tikka Roll", "description": "Grilled paneer with spiced tikka masala.", "price": 169, "category": "Roll", "image": "chinese" },
+        { "id": 604, "name": "Double Chicken Roll", "description": "Double servings of grilled chicken.", "price": 199, "category": "Roll", "image": "Rolls" },
+        { "id": 605, "name": "Cheese Roll", "description": "Melted cheese with grilled veggies.", "price": 179, "category": "Roll", "image": "Rolls" }
       ]
     },
     {
       "restaurant_id": 7,
       "menu": [
-        { "id": 701, "name": "Chicken Momos", "description": "Steamed chicken dumplings with spicy dipping sauce.", "price": 129, "category": "Momos", "image": "https://example.com/images/chicken_momos.jpg" },
-        { "id": 702, "name": "Veg Momos", "description": "Steamed dumplings with mixed vegetables.", "price": 109, "category": "Momos", "image": "https://example.com/images/veg_momos.jpg" },
-        { "id": 703, "name": "Mutton Momos", "description": "Juicy mutton-filled dumplings.", "price": 149, "category": "Momos", "image": "https://example.com/images/mutton_momos.jpg" },
-        { "id": 704, "name": "Chili Garlic Momos", "description": "Fried momos with chili garlic sauce.", "price": 169, "category": "Momos", "image": "https://example.com/images/chili_garlic_momos.jpg" },
-        { "id": 705, "name": "Paneer Momos", "description": "Paneer-filled steamed dumplings.", "price": 139, "category": "Momos", "image": "https://example.com/images/paneer_momos.jpg" }
+        { "id": 701, "name": "Chicken Momos", "description": "Steamed chicken dumplings with spicy dipping sauce.", "price": 129, "category": "Momos", "image": "momos" },
+        { "id": 702, "name": "Veg Momos", "description": "Steamed dumplings with mixed vegetables.", "price": 109, "category": "Momos", "image": "momos" },
+        { "id": 703, "name": "Mutton Momos", "description": "Juicy mutton-filled dumplings.", "price": 149, "category": "Momos", "image": "momos" },
+        { "id": 704, "name": "Chili Garlic Momos", "description": "Fried momos with chili garlic sauce.", "price": 169, "category": "Momos", "image": "momos" },
+        { "id": 705, "name": "Paneer Momos", "description": "Paneer-filled steamed dumplings.", "price": 139, "category": "Momos", "image": "momos" }
       ]
     },
     {
       "restaurant_id": 8,
       "menu": [
-        { "id": 801, "name": "Seekh Kebab", "description": "Minced meat cooked with spices and grilled on skewers.", "price": 249, "category": "Kebabs", "image": "https://example.com/images/seekh_kebab.jpg" },
-        { "id": 802, "name": "Shami Kebab", "description": "Tender minced meat patties cooked with spices.", "price": 229, "category": "Kebabs", "image": "https://example.com/images/shami_kebab.jpg" },
-        { "id": 803, "name": "Chicken Tikka", "description": "Boneless chicken marinated in yogurt and spices.", "price": 279, "category": "Kebabs", "image": "https://example.com/images/chicken_tikka.jpg" },
-        { "id": 804, "name": "Mutton Seekh Kebab", "description": "Minced mutton seekh kebabs grilled to perfection.", "price": 299, "category": "Kebabs", "image": "https://example.com/images/mutton_seekh.jpg" },
-        { "id": 805, "name": "Tandoori Chicken", "description": "Juicy chicken marinated in a mix of yogurt and spices.", "price": 319, "category": "Kebabs", "image": "https://example.com/images/tandoori_chicken.jpg" }
+        { "id": 801, "name": "Seekh Kebab", "description": "Minced meat cooked with spices and grilled on skewers.", "price": 249, "category": "Kebabs", "image": "kebab" },
+        { "id": 802, "name": "Shami Kebab", "description": "Tender minced meat patties cooked with spices.", "price": 229, "category": "Kebabs", "image": "kebab" },
+        { "id": 803, "name": "Chicken Tikka", "description": "Boneless chicken marinated in yogurt and spices.", "price": 279, "category": "Kebabs", "image": "kebab" },
+        { "id": 804, "name": "Mutton Seekh Kebab", "description": "Minced mutton seekh kebabs grilled to perfection.", "price": 299, "category": "Kebabs","image": "kebab" },
+        { "id": 805, "name": "Tandoori Chicken", "description": "Juicy chicken marinated in a mix of yogurt and spices.", "price": 319, "category": "Kebabs", "image": "kebab" }
       ]
     },
     {
       "restaurant_id": 9,
       "menu": [
-        { "id": 901, "name": "Dosa", "description": "Crispy rice crepe served with chutneys.", "price": 99, "category": "South Indian", "image": "https://example.com/images/dosa.jpg" },
-        { "id": 902, "name": "Idli", "description": "Steamed rice cakes served with sambhar.", "price": 89, "category": "South Indian", "image": "https://example.com/images/idli.jpg" },
-        { "id": 903, "name": "Vada", "description": "Crispy fried lentil doughnuts.", "price": 79, "category": "South Indian", "image": "https://example.com/images/vada.jpg" },
-        { "id": 904, "name": "Sambar Rice", "description": "Rice mixed with spicy sambar.", "price": 149, "category": "South Indian", "image": "https://example.com/images/sambar_rice.jpg" },
-        { "id": 905, "name": "Coconut Chutney", "description": "Fresh coconut chutney served with dosas and idlis.", "price": 49, "category": "South Indian", "image": "https://example.com/images/coconut_chutney.jpg" }
+        { "id": 901, "name": "Dosa", "description": "Crispy rice crepe served with chutneys.", "price": 99, "category": "South Indian", "image": "southIndian" },
+        { "id": 902, "name": "Idli", "description": "Steamed rice cakes served with sambhar.", "price": 89, "category": "South Indian", "image": "southIndian" },
+        { "id": 903, "name": "Vada", "description": "Crispy fried lentil doughnuts.", "price": 79, "category": "South Indian", "image": "southIndian" },
+        { "id": 904, "name": "Sambar Rice", "description": "Rice mixed with spicy sambar.", "price": 149, "category": "South Indian", "image": "southIndian" },
+        { "id": 905, "name": "Coconut Chutney", "description": "Fresh coconut chutney served with dosas and idlis.", "price": 49, "category": "South Indian", "image": "southIndian" }
       ]
     },
     {
       "restaurant_id": 10,
       "menu": [
-        { "id": 1001, "name": "Spaghetti Aglio e Olio", "description": "Pasta with garlic, olive oil, and chili flakes.", "price": 349, "category": "Pasta", "image": "https://example.com/images/spaghetti.jpg" },
-        { "id": 1002, "name": "Penne Alfredo", "description": "Creamy Alfredo sauce with penne pasta.", "price": 399, "category": "Pasta", "image": "https://example.com/images/penne_alfredo.jpg" },
-        { "id": 1003, "name": "Lasagna", "description": "Layers of pasta, cheese, and marinara sauce.", "price": 459, "category": "Pasta", "image": "https://example.com/images/lasagna.jpg" },
-        { "id": 1004, "name": "Pasta Primavera", "description": "Pasta with fresh vegetables and a light olive oil dressing.", "price": 379, "category": "Pasta", "image": "https://example.com/images/pasta_primavera.jpg" },
-        { "id": 1005, "name": "Fettuccine Carbonara", "description": "Fettuccine with creamy carbonara sauce.", "price": 429, "category": "Pasta", "image": "https://example.com/images/fettuccine_carbonara.jpg" }
+        { "id": 1001, "name": "Spaghetti Aglio e Olio", "description": "Pasta with garlic, olive oil, and chili flakes.", "price": 349, "category": "Pasta", "image": "pasta" },
+        { "id": 1002, "name": "Penne Alfredo", "description": "Creamy Alfredo sauce with penne pasta.", "price": 399, "category": "Pasta", "image": "pasta" },
+        { "id": 1003, "name": "Lasagna", "description": "Layers of pasta, cheese, and marinara sauce.", "price": 459, "category": "Pasta", "image": "pasta" },
+        { "id": 1004, "name": "Pasta Primavera", "description": "Pasta with fresh vegetables and a light olive oil dressing.", "price": 379, "category": "Pasta", "image": "pasta" },
+        { "id": 1005, "name": "Fettuccine Carbonara", "description": "Fettuccine with creamy carbonara sauce.", "price": 429, "category": "Pasta", "image": "pasta" }
       ]
     }
   ]

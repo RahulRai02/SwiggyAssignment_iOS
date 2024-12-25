@@ -26,6 +26,7 @@
 		B72530362D1B77C900B80F54 /* RestaurantCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72530352D1B77C900B80F54 /* RestaurantCellView.swift */; };
 		B72530382D1BE1B400B80F54 /* SkeletonRestaurantCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72530372D1BE1B400B80F54 /* SkeletonRestaurantCellView.swift */; };
 		B73BAB2F2D1BF09D00BEF879 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BAB2E2D1BF09C00BEF879 /* RestaurantDetailView.swift */; };
+		B73BAB312D1C2AD600BEF879 /* menuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BAB302D1C2AD600BEF879 /* menuItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		B72530352D1B77C900B80F54 /* RestaurantCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCellView.swift; sourceTree = "<group>"; };
 		B72530372D1BE1B400B80F54 /* SkeletonRestaurantCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonRestaurantCellView.swift; sourceTree = "<group>"; };
 		B73BAB2E2D1BF09C00BEF879 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
+		B73BAB302D1C2AD600BEF879 /* menuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				B72530262D1B32E400B80F54 /* imageCarouselView.swift */,
 				B72530352D1B77C900B80F54 /* RestaurantCellView.swift */,
 				B72530372D1BE1B400B80F54 /* SkeletonRestaurantCellView.swift */,
+				B73BAB302D1C2AD600BEF879 /* menuItemCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B725302E2D1B4B9500B80F54 /* Restaurant.swift in Sources */,
+				B73BAB312D1C2AD600BEF879 /* menuItemCell.swift in Sources */,
 				B72530212D1B0AAC00B80F54 /* TabWidgetView.swift in Sources */,
 				B72530272D1B32E400B80F54 /* imageCarouselView.swift in Sources */,
 				B72530362D1B77C900B80F54 /* RestaurantCellView.swift in Sources */,
