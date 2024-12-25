@@ -18,7 +18,8 @@ struct Restaurant: Codable {
     var name, location: String
     var rating: Double
     var cuisine: [String]
-    var category, image: String
+    var category: String
+    var image: String?
 }
 
 struct categoryItem: Identifiable, Hashable{

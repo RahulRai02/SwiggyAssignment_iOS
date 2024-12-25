@@ -13,16 +13,18 @@ struct CategoryCell: View {
     var body: some View {
         Text(title)
             .font(.callout)
+            .fontWeight(.semibold)
             .frame(minWidth: 35)
             .padding(.vertical, 8)
             .padding(.horizontal, 10)
 
             .background(isSelected ? Color.theme.orange : Color.white)
-            .foregroundStyle(isSelected ? Color.white : Color.black)
+            .foregroundStyle(isSelected ? Color.white : Color.black.opacity(0.7))
+//            .fontweight(.semibold)
             .cornerRadius(16)
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color.black, lineWidth: isSelected ? 0 : 0.7)
+                    .stroke(Color.theme.secondaryText, lineWidth: isSelected ? 0 : 0.7)
             )
     }
 }

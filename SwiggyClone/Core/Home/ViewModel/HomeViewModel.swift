@@ -52,7 +52,7 @@ class HomeViewModel: ObservableObject {
             var categoryList: [categoryItem] = []
          
             for item in restroResponse.restaurants {
-                let categoryItem = categoryItem(name: item.category, image: item.image)
+                let categoryItem = categoryItem(name: item.category, image: item.image ?? "placeholder")
                 categoryList.append(categoryItem)
                  print(categoryItem)
             }
