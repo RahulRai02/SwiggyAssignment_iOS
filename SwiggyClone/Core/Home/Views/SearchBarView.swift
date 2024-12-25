@@ -41,6 +41,7 @@ struct SearchBarView: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 10)
+                
                 .fill(Color.white)
                 .strokeBorder(style: StrokeStyle(lineWidth: 0.5))
 

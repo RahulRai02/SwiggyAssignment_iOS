@@ -27,6 +27,9 @@
 		B72530382D1BE1B400B80F54 /* SkeletonRestaurantCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72530372D1BE1B400B80F54 /* SkeletonRestaurantCellView.swift */; };
 		B73BAB2F2D1BF09D00BEF879 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BAB2E2D1BF09C00BEF879 /* RestaurantDetailView.swift */; };
 		B73BAB312D1C2AD600BEF879 /* menuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BAB302D1C2AD600BEF879 /* menuItemCell.swift */; };
+		B73BAB332D1C424B00BEF879 /* SkeletonCategoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BAB322D1C424B00BEF879 /* SkeletonCategoryCellView.swift */; };
+		B73BAB352D1C42E600BEF879 /* FoodCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BAB342D1C42E600BEF879 /* FoodCategoryCell.swift */; };
+		B73BAB372D1C44A100BEF879 /* StickyModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BAB362D1C44A100BEF879 /* StickyModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,9 @@
 		B72530372D1BE1B400B80F54 /* SkeletonRestaurantCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonRestaurantCellView.swift; sourceTree = "<group>"; };
 		B73BAB2E2D1BF09C00BEF879 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
 		B73BAB302D1C2AD600BEF879 /* menuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuItemCell.swift; sourceTree = "<group>"; };
+		B73BAB322D1C424B00BEF879 /* SkeletonCategoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCategoryCellView.swift; sourceTree = "<group>"; };
+		B73BAB342D1C42E600BEF879 /* FoodCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryCell.swift; sourceTree = "<group>"; };
+		B73BAB362D1C44A100BEF879 /* StickyModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,7 @@
 		B72530112D1ABD5800B80F54 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B73BAB362D1C44A100BEF879 /* StickyModifier.swift */,
 				B72530282D1B3D2100B80F54 /* restroMockJson.json */,
 				B72530332D1B666300B80F54 /* menuJson.json */,
 			);
@@ -125,13 +132,9 @@
 		B72530132D1ABD8600B80F54 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				B725301E2D1AE64900B80F54 /* SearchBarView.swift */,
-				B72530202D1B0AAC00B80F54 /* TabWidgetView.swift */,
-				B72530222D1B0D6400B80F54 /* CategoryCell.swift */,
 				B72530262D1B32E400B80F54 /* imageCarouselView.swift */,
-				B72530352D1B77C900B80F54 /* RestaurantCellView.swift */,
-				B72530372D1BE1B400B80F54 /* SkeletonRestaurantCellView.swift */,
-				B73BAB302D1C2AD600BEF879 /* menuItemCell.swift */,
+				B72530202D1B0AAC00B80F54 /* TabWidgetView.swift */,
+				B73BAB382D1C4DB000BEF879 /* Cells */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				B725301C2D1ABF3700B80F54 /* HomeView.swift */,
+				B725301E2D1AE64900B80F54 /* SearchBarView.swift */,
 				B72530242D1B1F1900B80F54 /* AccountScreen.swift */,
 				B73BAB2E2D1BF09C00BEF879 /* RestaurantDetailView.swift */,
 			);
@@ -185,6 +189,43 @@
 			children = (
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		B73BAB382D1C4DB000BEF879 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B72530222D1B0D6400B80F54 /* CategoryCell.swift */,
+				B73BAB3B2D1C4E0700BEF879 /* MenuCell */,
+				B73BAB3A2D1C4DEB00BEF879 /* FoodCategoryCell */,
+				B73BAB392D1C4DD000BEF879 /* RestroCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B73BAB392D1C4DD000BEF879 /* RestroCell */ = {
+			isa = PBXGroup;
+			children = (
+				B72530372D1BE1B400B80F54 /* SkeletonRestaurantCellView.swift */,
+				B72530352D1B77C900B80F54 /* RestaurantCellView.swift */,
+			);
+			path = RestroCell;
+			sourceTree = "<group>";
+		};
+		B73BAB3A2D1C4DEB00BEF879 /* FoodCategoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				B73BAB322D1C424B00BEF879 /* SkeletonCategoryCellView.swift */,
+				B73BAB342D1C42E600BEF879 /* FoodCategoryCell.swift */,
+			);
+			path = FoodCategoryCell;
+			sourceTree = "<group>";
+		};
+		B73BAB3B2D1C4E0700BEF879 /* MenuCell */ = {
+			isa = PBXGroup;
+			children = (
+				B73BAB302D1C2AD600BEF879 /* menuItemCell.swift */,
+			);
+			path = MenuCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,9 +301,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B725302E2D1B4B9500B80F54 /* Restaurant.swift in Sources */,
+				B73BAB372D1C44A100BEF879 /* StickyModifier.swift in Sources */,
 				B73BAB312D1C2AD600BEF879 /* menuItemCell.swift in Sources */,
 				B72530212D1B0AAC00B80F54 /* TabWidgetView.swift in Sources */,
+				B73BAB352D1C42E600BEF879 /* FoodCategoryCell.swift in Sources */,
 				B72530272D1B32E400B80F54 /* imageCarouselView.swift in Sources */,
+				B73BAB332D1C424B00BEF879 /* SkeletonCategoryCellView.swift in Sources */,
 				B72530362D1B77C900B80F54 /* RestaurantCellView.swift in Sources */,
 				B725301F2D1AE64900B80F54 /* SearchBarView.swift in Sources */,
 				B72530062D1AB8EF00B80F54 /* ContentView.swift in Sources */,
@@ -416,6 +460,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,6 +490,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: - UI Component for filter cells
+
 struct CategoryCell: View {
     var title: String = "Filter"
     var isSelected: Bool = false

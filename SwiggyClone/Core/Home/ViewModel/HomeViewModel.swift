@@ -18,6 +18,14 @@ class HomeViewModel: ObservableObject {
     @Published var isLoadingMenus = false
    
     
+    @Published var frames : [CGRect] = []
+    @Published var searchText = ""
+    @Published var isRefreshing = false
+    @Published var selectedCateogry: Category? = nil
+    @Published var isLoadingRestroMenu = false
+    
+    
+    
     func fetchRestraunts(){
         // If network logic comes, we can add here
         guard let url = Bundle.main.url(forResource: "restroMockJson", withExtension: "json")
@@ -97,6 +105,9 @@ class HomeViewModel: ObservableObject {
         selectedRestaurant = nil
         menus = []
         categories = []
+    
     }
+    
+
     
 }
