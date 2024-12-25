@@ -26,7 +26,7 @@ struct WelcomeMenu: Codable {
 }
 
 // MARK: - MenuMenu
-struct MenuMenu: Codable {
+struct MenuMenu: Codable, Hashable {
     let id: Int
     let name, description: String
     let price: Int

@@ -26,6 +26,9 @@ struct HomeView: View {
     
     @State private var selectedRestaurant: Restaurant? = nil
     @State private var isLoadingRestroMenu = false
+    @State private var isShowingDetailView = false
+    
+    @Namespace var animation
     
     @StateObject private var vm: HomeViewModel = HomeViewModel()
     
@@ -35,160 +38,319 @@ struct HomeView: View {
 
     
     var body: some View {
+        
         ZStack{
-            Color.theme.background
-                .ignoresSafeArea()
-            
-            VStack{
-                ScrollView{
+            if isShowingDetailView {
+                RestaurantDetailView(restaurant: selectedRestaurant!, vm: vm, animation: animation, isShowingDetailView: $isShowingDetailView)
+                  
+            }else{
+//                ZStack{
+                    Color.theme.background
+                        .ignoresSafeArea()
                     
-                    navigationHeader
-                    searchBarHeader
-                        .sticky(frames)
- 
-                    imageCarouselView()
-      
-
-                    Text("WHAT'S ON YOUR MIND?")
-                        .font(.caption)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(Color.theme.accent)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal, 16)
-                        .padding(.top, 8)
-
-                    
-                    
-                    ScrollView(.horizontal, showsIndicators: false){
-//                        Text("Placeholder")
-                        LazyHGrid(rows: [GridItem(.flexible(), spacing: 10, alignment: nil),
-                                         GridItem(.flexible(), spacing: 10, alignment: nil)], alignment: .top ) {
+                    VStack{
+                        ScrollView{
                             
-                                if vm.categories.isEmpty {
-//                                    print("Placeholder")
-                                    
-                                    // Show placeholder cells
-                                    ForEach(0..<10, id: \.self) { _ in
-                                        VStack(alignment: .center) {
-                                            Circle()
-                                                .fill(Color.gray.opacity(0.3))
-                                                .frame(width: 75, height: 75)
-                                                .overlay(Circle().stroke(Color.gray.opacity(0.5), lineWidth: 1))
-                                                .shadow(radius: 5)
-                                            
-                                            RoundedRectangle(cornerRadius: 5)
-                                                .fill(Color.gray.opacity(0.3))
-                                                .frame(width: 75, height: 15)
-                                        }
-                                    }
-                                } else {
-                                    // Show actual cells
-                                    ForEach(vm.categories, id: \.self) { category in
-                                        VStack(alignment: .center) {
-                                            Image(category.image)
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 75, height: 75)
-                                                .clipShape(Circle())
-                                                .overlay(Circle().stroke(Color.gray, lineWidth: 1))
-                                                .shadow(radius: 5)
+                            navigationHeader
+                            searchBarHeader
+                                .sticky(frames)
+         
+                            imageCarouselView()
+              
 
-                                            Text(category.name)
-                                                .font(.caption)
-                                                .lineLimit(1)
-                                        }
-                                    }
-                                }
+                            Text("WHAT'S ON YOUR MIND?")
+                                .font(.caption)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(Color.theme.accent)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.horizontal, 16)
+                                .padding(.top, 8)
+
+                            
+                            
+                            ScrollView(.horizontal, showsIndicators: false){
+        //                        Text("Placeholder")
+                                LazyHGrid(rows: [GridItem(.flexible(), spacing: 10, alignment: nil),
+                                                 GridItem(.flexible(), spacing: 10, alignment: nil)], alignment: .top ) {
                                     
-//                            }
-                        
-                        }
-                         .onAppear{
-                             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                        if vm.categories.isEmpty {
+        //                                    print("Placeholder")
+                                            
+                                            // Show placeholder cells
+                                            ForEach(0..<10, id: \.self) { _ in
+                                                VStack(alignment: .center) {
+                                                    Circle()
+                                                        .fill(Color.gray.opacity(0.3))
+                                                        .frame(width: 75, height: 75)
+                                                        .overlay(Circle().stroke(Color.gray.opacity(0.5), lineWidth: 1))
+                                                        .shadow(radius: 5)
+                                                    
+                                                    RoundedRectangle(cornerRadius: 5)
+                                                        .fill(Color.gray.opacity(0.3))
+                                                        .frame(width: 75, height: 15)
+                                                }
+                                            }
+                                        } else {
+                                            // Show actual cells
+                                            ForEach(vm.categories, id: \.self) { category in
+                                                VStack(alignment: .center) {
+                                                    Image(category.image)
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .frame(width: 75, height: 75)
+                                                        .clipShape(Circle())
+                                                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                                                        .shadow(radius: 5)
+
+                                                    Text(category.name)
+                                                        .font(.caption)
+                                                        .lineLimit(1)
+                                                }
+                                            }
+                                        }
+                                            
+        //                            }
+                                
+                                }
+                                 .onAppear{
+                                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                         
+                                         vm.fetchRestraunts()
+                                         vm.fetchCategories()
+                                     }
+                                 }
                                  
-                                 vm.fetchRestraunts()
-                                 vm.fetchCategories()
-                             }
-                         }
-                         
-                         .padding()
-                    }
-                    
-                    filterHeader
-                        .sticky(frames)
-                    
-                    Text("Top 10 restraurants to explore")
-                        .font(.callout)
-                        .fontWeight(.bold)
-                        .foregroundStyle(Color.theme.accent)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal, 16)
-                        .padding(.top, 8)
-                    
-                    ScrollView{
-                        
-                        
-                        VStack(spacing: 2, content: {
-                            if vm.restraunts.isEmpty {
-                                ForEach(0..<5, id: \.self) { _ in
-                                    SkeletonRestaurantCellView()
-                                }
-                            }else{
-                                ForEach(vm.restraunts, id: \.id){ restaurant in
-                                    NavigationLink {
-                                        RestaurantDetailView()
-                                    } label: {
-                                        RestaurantCellView(restaurant: restaurant)
-                                            
-                                    }
-
-//                                    RestaurantCellView(restaurant: restaurant)
-//                                        .onTapGesture {
-//                                            selectedRestaurant = restaurant
-//                                            isLoadingRestroMenu = true
-//                                        }
-                                }
+                                 .padding()
                             }
                             
-                      
-                        })
-                        
+                            filterHeader
+                                .sticky(frames)
+                            
+                            Text("Top 10 restraurants to explore")
+                                .font(.callout)
+                                .fontWeight(.bold)
+                                .foregroundStyle(Color.theme.accent)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.horizontal, 16)
+                                .padding(.top, 8)
+                            
+                            ScrollView{
+                                
+                                
+                                VStack(spacing: 2, content: {
+                                    if vm.restraunts.isEmpty {
+                                        ForEach(0..<5, id: \.self) { _ in
+                                            SkeletonRestaurantCellView()
+                                        }
+                                    }else{
+                                        ForEach(vm.restraunts, id: \.id){ restaurant in
+        //                                    NavigationLink {
+        //                                        RestaurantDetailView(restaurant: restaurant, vm: vm, animation: animation)
+        //                                            .navigationBarBackButtonHidden()
+        //                                    } label: {
+        //                                        RestaurantCellView(restaurant: restaurant, animation: animation)
+        //
+        //                                    }
+                                            
+                                            RestaurantCellView(restaurant: restaurant, animation: animation)
+                                                .onTapGesture {
+                                                    withAnimation(.easeIn(duration: 0.34)){
+                                                        selectedRestaurant = restaurant
+                                                        isShowingDetailView = true
+                                                    }
+                                                  
+                                                }
+                                            
+                                      
+                                        }
+                                    }
+                                    
+                              
+                                })
+                                
 
-                        .onAppear{
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
-                                vm.fetchRestraunts()
+                                .onAppear{
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+                                        vm.fetchRestraunts()
+                                    }
+                                }
                             }
+                              
                         }
+                        .refreshable(action: {
+                            await refreshData()
+                        })
+                        .coordinateSpace(name: "container")
+                        .onPreferenceChange(FramePreferenceKey.self, perform: {
+                            frames = $0.sorted(by: { $0.minY < $1.minY })
+                        })
+        //                .overlay(alignment: .center){
+        //                    let str = frames.map{
+        //                        "\(Int($0.minY)) - \(Int($0.height))"
+        //                    }.joined(separator: "\n")
+        //                    Text(str)
+        //                        .foregroundColor(.white)
+        //                        .background(.black)
+        //
+        //                }
+                        .clipped()
                     }
-
                     
-//                    dummyContent
-                    
-
-
-//                    dummyContent
-                        
-                      
-                }
-                .refreshable(action: {
-                    await refreshData()
-                })
-                .coordinateSpace(name: "container")
-                .onPreferenceChange(FramePreferenceKey.self, perform: {
-                    frames = $0.sorted(by: { $0.minY < $1.minY })
-                })
-//                .overlay(alignment: .center){
-//                    let str = frames.map{
-//                        "\(Int($0.minY)) - \(Int($0.height))"
-//                    }.joined(separator: "\n")
-//                    Text(str)
-//                        .foregroundColor(.white)
-//                        .background(.black)
-//
 //                }
-                .clipped()
             }
         }
+        
+//        ZStack{
+//            Color.theme.background
+//                .ignoresSafeArea()
+//            
+//            VStack{
+//                ScrollView{
+//                    
+//                    navigationHeader
+//                    searchBarHeader
+//                        .sticky(frames)
+// 
+//                    imageCarouselView()
+//      
+//
+//                    Text("WHAT'S ON YOUR MIND?")
+//                        .font(.caption)
+//                        .fontWeight(.semibold)
+//                        .foregroundStyle(Color.theme.accent)
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                        .padding(.horizontal, 16)
+//                        .padding(.top, 8)
+//
+//                    
+//                    
+//                    ScrollView(.horizontal, showsIndicators: false){
+////                        Text("Placeholder")
+//                        LazyHGrid(rows: [GridItem(.flexible(), spacing: 10, alignment: nil),
+//                                         GridItem(.flexible(), spacing: 10, alignment: nil)], alignment: .top ) {
+//                            
+//                                if vm.categories.isEmpty {
+////                                    print("Placeholder")
+//                                    
+//                                    // Show placeholder cells
+//                                    ForEach(0..<10, id: \.self) { _ in
+//                                        VStack(alignment: .center) {
+//                                            Circle()
+//                                                .fill(Color.gray.opacity(0.3))
+//                                                .frame(width: 75, height: 75)
+//                                                .overlay(Circle().stroke(Color.gray.opacity(0.5), lineWidth: 1))
+//                                                .shadow(radius: 5)
+//                                            
+//                                            RoundedRectangle(cornerRadius: 5)
+//                                                .fill(Color.gray.opacity(0.3))
+//                                                .frame(width: 75, height: 15)
+//                                        }
+//                                    }
+//                                } else {
+//                                    // Show actual cells
+//                                    ForEach(vm.categories, id: \.self) { category in
+//                                        VStack(alignment: .center) {
+//                                            Image(category.image)
+//                                                .resizable()
+//                                                .scaledToFit()
+//                                                .frame(width: 75, height: 75)
+//                                                .clipShape(Circle())
+//                                                .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+//                                                .shadow(radius: 5)
+//
+//                                            Text(category.name)
+//                                                .font(.caption)
+//                                                .lineLimit(1)
+//                                        }
+//                                    }
+//                                }
+//                                    
+////                            }
+//                        
+//                        }
+//                         .onAppear{
+//                             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//                                 
+//                                 vm.fetchRestraunts()
+//                                 vm.fetchCategories()
+//                             }
+//                         }
+//                         
+//                         .padding()
+//                    }
+//                    
+//                    filterHeader
+//                        .sticky(frames)
+//                    
+//                    Text("Top 10 restraurants to explore")
+//                        .font(.callout)
+//                        .fontWeight(.bold)
+//                        .foregroundStyle(Color.theme.accent)
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                        .padding(.horizontal, 16)
+//                        .padding(.top, 8)
+//                    
+//                    ScrollView{
+//                        
+//                        
+//                        VStack(spacing: 2, content: {
+//                            if vm.restraunts.isEmpty {
+//                                ForEach(0..<5, id: \.self) { _ in
+//                                    SkeletonRestaurantCellView()
+//                                }
+//                            }else{
+//                                ForEach(vm.restraunts, id: \.id){ restaurant in
+////                                    NavigationLink {
+////                                        RestaurantDetailView(restaurant: restaurant, vm: vm, animation: animation)
+////                                            .navigationBarBackButtonHidden()
+////                                    } label: {
+////                                        RestaurantCellView(restaurant: restaurant, animation: animation)
+////                                            
+////                                    }
+//                                    
+//                                    RestaurantCellView(restaurant: restaurant, animation: animation)
+//                                        .onTapGesture {
+//                                            selectedRestaurant = restaurant
+//                                            isShowingDetailView = true
+//                                        }
+//                                    
+//                              
+//                                }
+//                            }
+//                            
+//                      
+//                        })
+//                        
+//
+//                        .onAppear{
+//                            DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+//                                vm.fetchRestraunts()
+//                            }
+//                        }
+//                    }
+//
+//                      
+//                }
+//                .refreshable(action: {
+//                    await refreshData()
+//                })
+//                .coordinateSpace(name: "container")
+//                .onPreferenceChange(FramePreferenceKey.self, perform: {
+//                    frames = $0.sorted(by: { $0.minY < $1.minY })
+//                })
+////                .overlay(alignment: .center){
+////                    let str = frames.map{
+////                        "\(Int($0.minY)) - \(Int($0.height))"
+////                    }.joined(separator: "\n")
+////                    Text(str)
+////                        .foregroundColor(.white)
+////                        .background(.black)
+////
+////                }
+//                .clipped()
+//            }
+//            
+//        }
 
             
     }
