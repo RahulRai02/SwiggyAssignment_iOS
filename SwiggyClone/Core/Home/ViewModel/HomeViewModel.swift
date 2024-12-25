@@ -92,4 +92,11 @@ class HomeViewModel: ObservableObject {
     }
         
     
+    func resetLists(){
+        restraunts = []
+        selectedRestaurant = nil
+        menus = []
+        categories = []
+    }
+    
 }

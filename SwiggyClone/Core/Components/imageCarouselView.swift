@@ -9,7 +9,10 @@ import SwiftUI
 
 struct imageCarouselView: View {
     @State private var currentPage = 0
-    let images = ["Barista", "BurgerKing", "Chaayos", "greenCravings", "Keventers", "WowMomos"]
+    
+    var images: [String]
+    
+//    let images = ["Barista", "BurgerKing", "Chaayos", "greenCravings", "Keventers", "WowMomos"]
     var body: some View {
         VStack {
             TabView(selection: $currentPage) {
@@ -36,5 +39,5 @@ struct imageCarouselView: View {
 }
 
 #Preview {
-    imageCarouselView()
+    imageCarouselView(images: ["Barista", "BurgerKing", "Chaayos", "greenCravings", "Keventers", "WowMomos"])
 }

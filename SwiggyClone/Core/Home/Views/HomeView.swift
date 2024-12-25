@@ -55,7 +55,7 @@ struct HomeView: View {
                             searchBarHeader
                                 .sticky(frames)
          
-                            imageCarouselView()
+                            imageCarouselView(images: ["Barista", "BurgerKing", "Chaayos", "greenCravings", "Keventers", "WowMomos"])
               
 
                             Text("WHAT'S ON YOUR MIND?")
@@ -93,19 +93,27 @@ struct HomeView: View {
                                         } else {
                                             // Show actual cells
                                             ForEach(vm.categories, id: \.self) { category in
-                                                VStack(alignment: .center) {
-                                                    Image(category.image)
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                        .frame(width: 75, height: 75)
-                                                        .clipShape(Circle())
-                                                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
-                                                        .shadow(radius: 5)
+                                                NavigationLink {
+                                                    
+                                                } label: {
+                                                    VStack(alignment: .center) {
+                                                        Image(category.image)
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .frame(width: 75, height: 75)
+                                                            .clipShape(Circle())
+                                                            .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                                                            .shadow(radius: 5)
 
-                                                    Text(category.name)
-                                                        .font(.caption)
-                                                        .lineLimit(1)
+                                                        Text(category.name)
+                                                            .font(.caption)
+                                                            .lineLimit(1)
+                                                    }
+                                                   
                                                 }
+
+                                                
+                             
                                             }
                                         }
                                             
@@ -121,6 +129,11 @@ struct HomeView: View {
                                  }
                                  
                                  .padding()
+                            }
+                            imageCarouselView(images: ["WowMomos", "BurgerKing", "greenCravings", "Keventers", "Barista", "Chaayos"])
+                            
+                            ScrollView(.horizontal, showsIndicators: false){
+                    
                             }
                             
                             filterHeader
@@ -144,14 +157,6 @@ struct HomeView: View {
                                         }
                                     }else{
                                         ForEach(vm.restraunts, id: \.id){ restaurant in
-        //                                    NavigationLink {
-        //                                        RestaurantDetailView(restaurant: restaurant, vm: vm, animation: animation)
-        //                                            .navigationBarBackButtonHidden()
-        //                                    } label: {
-        //                                        RestaurantCellView(restaurant: restaurant, animation: animation)
-        //
-        //                                    }
-                                            
                                             RestaurantCellView(restaurant: restaurant, animation: animation)
                                                 .onTapGesture {
                                                     withAnimation(.easeIn(duration: 0.34)){
@@ -199,165 +204,19 @@ struct HomeView: View {
 //                }
             }
         }
-        
-//        ZStack{
-//            Color.theme.background
-//                .ignoresSafeArea()
-//            
-//            VStack{
-//                ScrollView{
-//                    
-//                    navigationHeader
-//                    searchBarHeader
-//                        .sticky(frames)
-// 
-//                    imageCarouselView()
-//      
-//
-//                    Text("WHAT'S ON YOUR MIND?")
-//                        .font(.caption)
-//                        .fontWeight(.semibold)
-//                        .foregroundStyle(Color.theme.accent)
-//                        .frame(maxWidth: .infinity, alignment: .leading)
-//                        .padding(.horizontal, 16)
-//                        .padding(.top, 8)
-//
-//                    
-//                    
-//                    ScrollView(.horizontal, showsIndicators: false){
-////                        Text("Placeholder")
-//                        LazyHGrid(rows: [GridItem(.flexible(), spacing: 10, alignment: nil),
-//                                         GridItem(.flexible(), spacing: 10, alignment: nil)], alignment: .top ) {
-//                            
-//                                if vm.categories.isEmpty {
-////                                    print("Placeholder")
-//                                    
-//                                    // Show placeholder cells
-//                                    ForEach(0..<10, id: \.self) { _ in
-//                                        VStack(alignment: .center) {
-//                                            Circle()
-//                                                .fill(Color.gray.opacity(0.3))
-//                                                .frame(width: 75, height: 75)
-//                                                .overlay(Circle().stroke(Color.gray.opacity(0.5), lineWidth: 1))
-//                                                .shadow(radius: 5)
-//                                            
-//                                            RoundedRectangle(cornerRadius: 5)
-//                                                .fill(Color.gray.opacity(0.3))
-//                                                .frame(width: 75, height: 15)
-//                                        }
-//                                    }
-//                                } else {
-//                                    // Show actual cells
-//                                    ForEach(vm.categories, id: \.self) { category in
-//                                        VStack(alignment: .center) {
-//                                            Image(category.image)
-//                                                .resizable()
-//                                                .scaledToFit()
-//                                                .frame(width: 75, height: 75)
-//                                                .clipShape(Circle())
-//                                                .overlay(Circle().stroke(Color.gray, lineWidth: 1))
-//                                                .shadow(radius: 5)
-//
-//                                            Text(category.name)
-//                                                .font(.caption)
-//                                                .lineLimit(1)
-//                                        }
-//                                    }
-//                                }
-//                                    
-////                            }
-//                        
-//                        }
-//                         .onAppear{
-//                             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                                 
-//                                 vm.fetchRestraunts()
-//                                 vm.fetchCategories()
-//                             }
-//                         }
-//                         
-//                         .padding()
-//                    }
-//                    
-//                    filterHeader
-//                        .sticky(frames)
-//                    
-//                    Text("Top 10 restraurants to explore")
-//                        .font(.callout)
-//                        .fontWeight(.bold)
-//                        .foregroundStyle(Color.theme.accent)
-//                        .frame(maxWidth: .infinity, alignment: .leading)
-//                        .padding(.horizontal, 16)
-//                        .padding(.top, 8)
-//                    
-//                    ScrollView{
-//                        
-//                        
-//                        VStack(spacing: 2, content: {
-//                            if vm.restraunts.isEmpty {
-//                                ForEach(0..<5, id: \.self) { _ in
-//                                    SkeletonRestaurantCellView()
-//                                }
-//                            }else{
-//                                ForEach(vm.restraunts, id: \.id){ restaurant in
-////                                    NavigationLink {
-////                                        RestaurantDetailView(restaurant: restaurant, vm: vm, animation: animation)
-////                                            .navigationBarBackButtonHidden()
-////                                    } label: {
-////                                        RestaurantCellView(restaurant: restaurant, animation: animation)
-////                                            
-////                                    }
-//                                    
-//                                    RestaurantCellView(restaurant: restaurant, animation: animation)
-//                                        .onTapGesture {
-//                                            selectedRestaurant = restaurant
-//                                            isShowingDetailView = true
-//                                        }
-//                                    
-//                              
-//                                }
-//                            }
-//                            
-//                      
-//                        })
-//                        
-//
-//                        .onAppear{
-//                            DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
-//                                vm.fetchRestraunts()
-//                            }
-//                        }
-//                    }
-//
-//                      
-//                }
-//                .refreshable(action: {
-//                    await refreshData()
-//                })
-//                .coordinateSpace(name: "container")
-//                .onPreferenceChange(FramePreferenceKey.self, perform: {
-//                    frames = $0.sorted(by: { $0.minY < $1.minY })
-//                })
-////                .overlay(alignment: .center){
-////                    let str = frames.map{
-////                        "\(Int($0.minY)) - \(Int($0.height))"
-////                    }.joined(separator: "\n")
-////                    Text(str)
-////                        .foregroundColor(.white)
-////                        .background(.black)
-////
-////                }
-//                .clipped()
-//            }
-//            
-//        }
-
-            
     }
     func refreshData() async {
         isRefreshing = true
         // Simulate a network delay
-        try? await Task.sleep(nanoseconds: 2 * 1_000_000_000)
+//        try? await Task.sleep(nanoseconds: 2 * 1_000_000_000)
+        vm.resetLists()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            vm.fetchCategories()
+            vm.fetchRestraunts()
+        }
+//        vm.fetchCategories()
+//        vm.fetchRestraunts()
+        
         isRefreshing = false
     }
     
