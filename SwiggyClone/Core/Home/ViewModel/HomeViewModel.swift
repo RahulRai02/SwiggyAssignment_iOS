@@ -89,8 +89,11 @@ class HomeViewModel: ObservableObject {
             let data = try Data(contentsOf: url)
             let decodedResponse = try JSONDecoder().decode(MenuResponseByRestroId.self, from: data)
             let restaurantMenus = decodedResponse.menus.first { $0.restaurantID == restaurantID }?.menu ?? []
-
-            self.menus = restaurantMenus
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                self.menus = restaurantMenus
+            }
+           
             
         } catch {
             print("Failed to decode JSON: \(error.localizedDescription)")

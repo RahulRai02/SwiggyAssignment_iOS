@@ -31,6 +31,7 @@
 		B73BAB352D1C42E600BEF879 /* FoodCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BAB342D1C42E600BEF879 /* FoodCategoryCell.swift */; };
 		B73BAB372D1C44A100BEF879 /* StickyModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BAB362D1C44A100BEF879 /* StickyModifier.swift */; };
 		B73BAB3D2D1C516F00BEF879 /* backButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BAB3C2D1C516F00BEF879 /* backButtonLabel.swift */; };
+		B7EE45F92D2829B700E29381 /* SkeletonMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EE45F82D2829B600E29381 /* SkeletonMenuItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		B73BAB342D1C42E600BEF879 /* FoodCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryCell.swift; sourceTree = "<group>"; };
 		B73BAB362D1C44A100BEF879 /* StickyModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyModifier.swift; sourceTree = "<group>"; };
 		B73BAB3C2D1C516F00BEF879 /* backButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backButtonLabel.swift; sourceTree = "<group>"; };
+		B7EE45F82D2829B600E29381 /* SkeletonMenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonMenuItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				B73BAB302D1C2AD600BEF879 /* menuItemCell.swift */,
+				B7EE45F82D2829B600E29381 /* SkeletonMenuItemCell.swift */,
 			);
 			path = MenuCell;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				B72530232D1B0D6500B80F54 /* CategoryCell.swift in Sources */,
 				B725301D2D1ABF3700B80F54 /* HomeView.swift in Sources */,
 				B73BAB2F2D1BF09D00BEF879 /* RestaurantDetailView.swift in Sources */,
+				B7EE45F92D2829B700E29381 /* SkeletonMenuItemCell.swift in Sources */,
 				B72530042D1AB8EF00B80F54 /* SwiggyCloneApp.swift in Sources */,
 				B73BAB3D2D1C516F00BEF879 /* backButtonLabel.swift in Sources */,
 				B72530382D1BE1B400B80F54 /* SkeletonRestaurantCellView.swift in Sources */,

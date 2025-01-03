@@ -98,11 +98,20 @@ extension RestaurantDetailView {
     // MARK: - Restaurant Menu
     private var restaurantMenu: some View {
         ScrollView{
-            ForEach(vm.menus, id: \.self){ menu in
-                menuItemCell(menu: menu)
+            if vm.menus.isEmpty {
+                ForEach(0..<6, id: \.self){_ in
+                    SkeletonMenuItemCell()
+                }
+            }else{
+                ForEach(vm.menus, id: \.self){ menu in
+                    menuItemCell(menu: menu)
+                }
             }
+            
+
         }
         .onAppear{
+            NSLog("Menu fetched !")
             vm.fetchMenus(for: restaurant.id)
         }
     }
