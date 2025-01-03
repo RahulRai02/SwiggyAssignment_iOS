@@ -10,58 +10,61 @@ import SwiftUI
 import Foundation
 
 struct HomeView: View {
-
+    
     @State var isShowingDetailView = false
     @Namespace var animation
-
+    
     @StateObject private var vm: HomeViewModel = HomeViewModel()
-
+    
     var body: some View {
         
         ZStack{
             Color.theme.background
                 .ignoresSafeArea()
             
-            VStack{
+           
+                
                 ScrollView{
-                    navigationHeader
-                    
-                    searchBarHeader
-                        .sticky(vm.frames)
-                    
-                    imageCarouselView(
-                        images: [
-                            "Barista",
-                            "BurgerKing",
-                            "Chaayos",
-                            "greenCravings",
-                            "Keventers",
-                            "WowMomos"
-                        ]
-                    )
-                    
-                    
-                    foodCategoryHeading
-                    foodCategoryContent
-                    
-                    imageCarouselView(
-                        images: [
-                            "Barista",
-                            "BurgerKing",
-                            "Chaayos",
-                            "greenCravings",
-                            "Keventers",
-                            "WowMomos"
-                        ].reversed()
-                    )
-                    
-                    filterHeader
-                        .sticky(vm.frames)
-                    
-                    
-                    
-                    verticalRestrauntContentHeading
-                    verticalRestrauntContent
+//                    if !isShowingDetailView{
+                        navigationHeader
+                        
+                        searchBarHeader
+                            .sticky(vm.frames)
+                        
+                        imageCarouselView(
+                            images: [
+                                "Barista",
+                                "BurgerKing",
+                                "Chaayos",
+                                "greenCravings",
+                                "Keventers",
+                                "WowMomos"
+                            ]
+                        )
+                        
+                        
+                        foodCategoryHeading
+                        foodCategoryContent
+                        
+                        imageCarouselView(
+                            images: [
+                                "Barista",
+                                "BurgerKing",
+                                "Chaayos",
+                                "greenCravings",
+                                "Keventers",
+                                "WowMomos"
+                            ].reversed()
+                        )
+                        
+                        filterHeader
+                            .sticky(vm.frames)
+                        
+                        
+                        
+                        verticalRestrauntContentHeading
+                        verticalRestrauntContent
+//                    }
                 }
                 
                 .refreshable(action: {
@@ -87,11 +90,14 @@ struct HomeView: View {
                 .clipped()
                 
                 .disabled(isShowingDetailView)
-            }
-            .blur(radius: isShowingDetailView ? 100 : 0)
-            if isShowingDetailView {
-                RestaurantDetailView(restaurant: vm.selectedRestaurant!, animation: animation, vm: vm, isShowingDetailView: $isShowingDetailView)
-            }
+                .blur(radius: isShowingDetailView ? .infinity : 0)
+                
+                if isShowingDetailView {
+                    RestaurantDetailView(restaurant: vm.selectedRestaurant!, animation: animation, vm: vm, isShowingDetailView: $isShowingDetailView)
+                    //                    .zIndex(2)
+                }
+            
+
         }
     }
     
@@ -105,7 +111,7 @@ struct HomeView: View {
         }
         vm.isRefreshing = false
     }
-
+    
 }
 
 
@@ -152,7 +158,7 @@ extension HomeView {
                     }
                 }
             }
-            
+        
     }
     
     // MARK: - Food Category Heading
@@ -187,16 +193,16 @@ extension HomeView {
                 
                 
             }
-             .onAppear{
-                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                     vm.fetchCategories()
-                 }
-             }
-
-             .padding()
+                             .onAppear{
+                                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                     vm.fetchCategories()
+                                 }
+                             }
+            
+                             .padding()
         }
     }
-
+    
     
     // MARK: - Vertical Restraunt Content Heading
     private var verticalRestrauntContentHeading: some View {
@@ -219,18 +225,18 @@ extension HomeView {
                     }
                 }else{
                     ForEach(vm.restraunts, id: \.id){ restaurant in
-                        if !isShowingDetailView{
-                            RestaurantCellView(restaurant: restaurant, animation: animation)
-                                .onTapGesture {
-                                    print("Tapped restro cell")
-                                    withAnimation(.easeIn(duration: 0.34)){
-                                        vm.selectedRestaurant = restaurant
-                                        isShowingDetailView = true
-                                    }
-                                    
+                        //                        if !isShowingDetailView{
+                        RestaurantCellView(restaurant: restaurant, animation: animation, isShowingDetailView: $isShowingDetailView)
+                            .onTapGesture {
+                                //                                    print("Tapped restro cell")
+                                withAnimation(.easeIn(duration: 0.25)){
+                                    vm.selectedRestaurant = restaurant
+                                    isShowingDetailView = true
                                 }
-                        }
-
+                                
+                            }
+                        //                                .zIndex(1)
+                        //                        }
                     }
                 }
                 

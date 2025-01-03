@@ -36,13 +36,15 @@ extension RestaurantDetailView {
     private var restaurantImageAndBackButton: some View {
         ZStack(alignment:.topLeading){
             
-            Image(restaurant.image ?? "placeholder")
-                
-                .resizable()
-                .matchedGeometryEffect(id: "\(restaurant.id)", in: animation)
-                .scaledToFill()
-               
-                .ignoresSafeArea()
+            
+            if isShowingDetailView{
+                Image(restaurant.image ?? "placeholder")
+                    .resizable()
+                    .scaledToFill()
+                    .matchedGeometryEffect(id: "\(restaurant.id)", in: animation)
+                    .ignoresSafeArea()
+            }
+
             
             
             Button {

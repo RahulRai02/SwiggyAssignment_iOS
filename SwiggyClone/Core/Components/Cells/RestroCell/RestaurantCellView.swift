@@ -10,25 +10,30 @@ import SwiftUI
 struct RestaurantCellView: View {
     let restaurant: Restaurant
     var animation: Namespace.ID
+    @Binding var isShowingDetailView: Bool
     var body: some View {
 
             HStack{
-
-                RoundedRectangle(cornerRadius: 10)
-                    .overlay(
-                        
-                        Image(restaurant.image ?? "placeholder")
-                           
-                            .resizable()
-                            .matchedGeometryEffect(id: "\(restaurant.id)", in: animation)
-                            .scaledToFill()
-                            .frame(width: 140, height: 170)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .foregroundColor(.gray)
+                if !isShowingDetailView{
+                    RoundedRectangle(cornerRadius: 10)
+                        .overlay(
                             
-                        )
-                    .frame(width: 140, height: 170)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                            Image(restaurant.image ?? "placeholder")
+                                .resizable()
+                                .matchedGeometryEffect(id: "\(restaurant.id)", in: animation)
+                                .scaledToFill()
+                                
+                                .frame(width: 140, height: 170)
+                                
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                
+    //                            .foregroundColor(.gray)
+                                
+                            )
+                        .frame(width: 140, height: 170)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+
                         
                 VStack(alignment:.leading) {
                     Text(restaurant.name)
@@ -56,6 +61,7 @@ struct RestaurantCellView: View {
                         .font(.caption)
 //                        .matchedGeometryEffect(id: "\(restaurant.id) + restroLocation", in: animation)
                 }
+                .opacity(isShowingDetailView ? 0 : 1)
                 .foregroundStyle(Color.theme.accent)
                 .padding(.horizontal, 8)
                 .frame(maxWidth: .infinity, alignment: .leading)
