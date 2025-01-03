@@ -19,73 +19,78 @@ struct HomeView: View {
     var body: some View {
         
         ZStack{
+            Color.theme.background
+                .ignoresSafeArea()
+            
+            VStack{
+                ScrollView{
+                    navigationHeader
+                    
+                    searchBarHeader
+                        .sticky(vm.frames)
+                    
+                    imageCarouselView(
+                        images: [
+                            "Barista",
+                            "BurgerKing",
+                            "Chaayos",
+                            "greenCravings",
+                            "Keventers",
+                            "WowMomos"
+                        ]
+                    )
+                    
+                    
+                    foodCategoryHeading
+                    foodCategoryContent
+                    
+                    imageCarouselView(
+                        images: [
+                            "Barista",
+                            "BurgerKing",
+                            "Chaayos",
+                            "greenCravings",
+                            "Keventers",
+                            "WowMomos"
+                        ].reversed()
+                    )
+                    
+                    filterHeader
+                        .sticky(vm.frames)
+                    
+                    
+                    
+                    verticalRestrauntContentHeading
+                    verticalRestrauntContent
+                }
+                
+                .refreshable(action: {
+                    await refreshData()
+                })
+                .coordinateSpace(name: "container")
+                
+                .onPreferenceChange(FramePreferenceKey.self, perform: {
+                    vm.frames = $0.sorted(by: { $0.minY < $1.minY })
+                })
+                
+                /*
+                 .overlay(alignment: .center){
+                 let str = frames.map{
+                 "\(Int($0.minY)) - \(Int($0.height))"
+                 }.joined(separator: "\n")
+                 Text(str)
+                 .foregroundColor(.white)
+                 .background(.black)
+                 
+                 }
+                 */
+                .clipped()
+                
+                .disabled(isShowingDetailView)
+            }
+            .blur(radius: isShowingDetailView ? 100 : 0)
             if isShowingDetailView {
                 RestaurantDetailView(restaurant: vm.selectedRestaurant!, animation: animation, vm: vm, isShowingDetailView: $isShowingDetailView)
-            }else{
-                Color.theme.background
-                    .ignoresSafeArea()
-                
-                VStack{
-                    ScrollView{
-                        navigationHeader
-                            
-                        searchBarHeader
-                            .sticky(vm.frames)
-                        
-                        imageCarouselView(
-                            images: [
-                                "Barista",
-                                "BurgerKing",
-                                "Chaayos",
-                                "greenCravings",
-                                "Keventers",
-                                "WowMomos"
-                            ]
-                        )
-                        
-                        
-                        foodCategoryHeading
-                        foodCategoryContent
-                        
-                        imageCarouselView(
-                            images: [
-                                "Barista",
-                                "BurgerKing",
-                                "Chaayos",
-                                "greenCravings",
-                                "Keventers",
-                                "WowMomos"
-                            ].reversed()
-                        )
-                        
-                        filterHeader
-                            .sticky(vm.frames)
-                        
-                        
-                        
-                        verticalRestrauntContentHeading
-                        verticalRestrauntContent
-                    }
-                    .refreshable(action: {
-                        await refreshData()
-                    })
-                    .coordinateSpace(name: "container")
-                    .onPreferenceChange(FramePreferenceKey.self, perform: {
-                        vm.frames = $0.sorted(by: { $0.minY < $1.minY })
-                    })
-                    /*
-                    .overlay(alignment: .center){
-                        let str = frames.map{
-                            "\(Int($0.minY)) - \(Int($0.height))"
-                        }.joined(separator: "\n")
-                        Text(str)
-                            .foregroundColor(.white)
-                            .background(.black)
-    
-                    }
-                     */
-                    .clipped()
-                }
             }
         }
     }
@@ -102,9 +107,6 @@ struct HomeView: View {
     }
 
 }
-
-
-
 
 
 // MARK: - Extension on HomeView
@@ -217,14 +219,18 @@ extension HomeView {
                     }
                 }else{
                     ForEach(vm.restraunts, id: \.id){ restaurant in
-                        RestaurantCellView(restaurant: restaurant, animation: animation)
-                            .onTapGesture {
-                                withAnimation(.easeIn(duration: 0.34)){
-                                    vm.selectedRestaurant = restaurant
-                                    isShowingDetailView = true
+                        if !isShowingDetailView{
+                            RestaurantCellView(restaurant: restaurant, animation: animation)
+                                .onTapGesture {
+                                    print("Tapped restro cell")
+                                    withAnimation(.easeIn(duration: 0.34)){
+                                        vm.selectedRestaurant = restaurant
+                                        isShowingDetailView = true
+                                    }
+                                    
                                 }
-                                
-                            }
+                        }
+
                     }
                 }
                 

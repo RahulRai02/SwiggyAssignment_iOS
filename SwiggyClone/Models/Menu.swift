@@ -31,7 +31,7 @@ struct MenuMenu: Codable, Hashable {
     let name, description: String
     let price: Int
     let category: String
-    let image: String
+    let image: String?
 }
 
 

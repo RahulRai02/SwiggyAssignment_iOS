@@ -3,8 +3,8 @@
     {
       "restaurant_id": 1,
       "menu": [
-        { "id": 101, "name": "Margherita Pizza", "description": "Classic margherita with fresh basil and mozzarella.", "price": 299, "category": "Pizza", "image": "pizzas" },
-        { "id": 102, "name": "Pepperoni Pizza", "description": "Loaded with pepperoni and extra cheese.", "price": 349, "category": "Pizza", "image": "pizzas" },
+        { "id": 101, "name": "Margherita Pizza", "description": "Classic margherita with fresh basil and mozzarella.", "price": 299, "category": "Pizza" },
+        { "id": 102, "name": "Pepperoni Pizza", "description": "Loaded with pepperoni and extra cheese.", "price": 349, "category": "Pizza" },
         { "id": 103, "name": "Veggie Supreme", "description": "Topped with bell peppers, olives, and onions.", "price": 329, "category": "Pizza", "image": "pizzas" },
         { "id": 104, "name": "BBQ Chicken Pizza", "description": "Smoked chicken with BBQ sauce.", "price": 399, "category": "Pizza", "image": "pizzas" },
         { "id": 105, "name": "Cheese Burst Pizza", "description": "Extra cheesy goodness in every bite.", "price": 359, "category": "Pizza", "image": "pizzas" }
@@ -15,7 +15,7 @@
       "menu": [
         { "id": 201, "name": "Classic Cheese Burger", "description": "Beef patty with cheddar cheese.", "price": 199, "category": "Burger", "image": "burgers" },
         { "id": 202, "name": "Veggie Burger", "description": "Patty made with fresh vegetables.", "price": 179, "category": "Burger", "image": "burgers" },
-        { "id": 203, "name": "Crispy Chicken Burger", "description": "Fried chicken with mayo and lettuce.", "price": 249, "category": "Burger", "image": "burgers" },
+        { "id": 203, "name": "Crispy Chicken Burger", "description": "Fried chicken with mayo and lettuce.", "price": 249, "category": "Burger" },
         { "id": 204, "name": "Double Trouble Burger", "description": "Double patty with double cheese.", "price": 299, "category": "Burger", "image": "burgers" },
         { "id": 205, "name": "Bacon Deluxe Burger", "description": "Topped with crispy bacon.", "price": 279, "category": "Burger", "image": "burgers"}
       ]

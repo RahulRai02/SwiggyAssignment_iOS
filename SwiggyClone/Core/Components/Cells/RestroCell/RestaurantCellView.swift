@@ -18,12 +18,14 @@ struct RestaurantCellView: View {
                     .overlay(
                         
                         Image(restaurant.image ?? "placeholder")
+                           
                             .resizable()
+                            .matchedGeometryEffect(id: "\(restaurant.id)", in: animation)
                             .scaledToFill()
                             .frame(width: 140, height: 170)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundColor(.gray)
-                            .matchedGeometryEffect(id: "\(restaurant.id)", in: animation)
+                            
                         )
                     .frame(width: 140, height: 170)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -34,10 +36,10 @@ struct RestaurantCellView: View {
                         .fontWeight(.bold)
                     HStack(spacing: 2){
                         Image(systemName: "star.circle.fill")
-                            .matchedGeometryEffect(id: "\(restaurant.id) + star", in: animation)
+//                            .matchedGeometryEffect(id: "\(restaurant.id) + star", in: animation)
                         
                         Text("\(restaurant.rating, specifier: "%.1f")")
-                            .matchedGeometryEffect(id: "\(restaurant.id) + restroRating", in: animation)
+//                            .matchedGeometryEffect(id: "\(restaurant.id) + restroRating", in: animation)
                         
                         Text("• 25 mins")
                         
@@ -52,7 +54,7 @@ struct RestaurantCellView: View {
                         
                     Text("\(restaurant.location)")
                         .font(.caption)
-                        .matchedGeometryEffect(id: "\(restaurant.id) + restroLocation", in: animation)
+//                        .matchedGeometryEffect(id: "\(restaurant.id) + restroLocation", in: animation)
                 }
                 .foregroundStyle(Color.theme.accent)
                 .padding(.horizontal, 8)

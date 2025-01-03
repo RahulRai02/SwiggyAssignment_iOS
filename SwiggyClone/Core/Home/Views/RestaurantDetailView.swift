@@ -37,9 +37,11 @@ extension RestaurantDetailView {
         ZStack(alignment:.topLeading){
             
             Image(restaurant.image ?? "placeholder")
+                
                 .resizable()
-                .scaledToFill()
                 .matchedGeometryEffect(id: "\(restaurant.id)", in: animation)
+                .scaledToFill()
+               
                 .ignoresSafeArea()
             
             
@@ -65,10 +67,10 @@ extension RestaurantDetailView {
                 .fontWeight(.bold)
             HStack(spacing: 2){
                 Image(systemName: "star.circle.fill")
-                    .matchedGeometryEffect(id: "\(restaurant.id) + star", in: animation)
+//                    .matchedGeometryEffect(id: "\(restaurant.id) + star", in: animation)
                 
                 Text("\(restaurant.rating, specifier: "%.1f")")
-                    .matchedGeometryEffect(id: "\(restaurant.id) + restroRating", in: animation)
+//                    .matchedGeometryEffect(id: "\(restaurant.id) + restroRating", in: animation)
                 
                 Text("• 25 mins")
                 
@@ -83,7 +85,7 @@ extension RestaurantDetailView {
             
             Text("\(restaurant.location)")
                 .font(.caption)
-                .matchedGeometryEffect(id: "\(restaurant.id) + restroLocation", in: animation)
+//                .matchedGeometryEffect(id: "\(restaurant.id) + restroLocation", in: animation)
         }
         .foregroundStyle(Color.theme.accent)
         .padding(.horizontal, 8)

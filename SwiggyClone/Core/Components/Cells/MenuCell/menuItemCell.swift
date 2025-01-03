@@ -31,12 +31,16 @@ struct menuItemCell: View {
             Spacer()
             RoundedRectangle(cornerRadius: 10)
                 .overlay(
-                    Image(menu.image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 100, height: 100)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .foregroundColor(.gray)
+//                    if let image = menu.image{
+                        
+                    Image(menu.image ?? "placeholder")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 100, height: 100)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundColor(.gray)
+                   
+        
                     
                     )
                 .frame(width: 100, height: 100)
